@@ -1,22 +1,6 @@
-## Contents
+# Requirements
 
-- [ESOF 2670: Software Engineering](:/90536163d2514002b3fcae935ffb4903)
-
-## ***Questions***
-
-### **1.19. Suppose that the product for Chocoholics Anonymous of Appendix A has been implemented exactly as described. Now the product has to be modified to include endocrinologists as providers. In what ways will the existing product have to be changed? Would it be better to discard everything and start again from scratch?**
-
-To integrate endocrinologists into the ChocAn system, the primary change would be updating the database to include new service codes, names, and fees for the treatments they provide. The provider directory (both backend and frontend) may also need to be updated so that providers can view these new services, and the validation system must recognize and accept the new codes when services are entered. If the system already gets this data from the database dynamically, then the change would be simple because the software will automatically show the new information. However, if the terminal is hardcoded with services, some refactoring might be required, but there is no need to start all over again from scratch. Even if rebuilding the system is considered an option, if the product has already been launched, a significant amount of time (developing, building, testing, launching/marketing) and money (hiring employees, paying for software and database service subscriptions, planning new marketing campaigns, and launching them) are required. 
-
-### **2.22 Which software life-cycle model would you use for the Chocoholics Anonymous product described in Appendix A? Give your reasons for your answer.**
-
-The best software life-cycle model for the ChocAn system would be an iterative and incremental model, meaning we would build the system step by step, prioritize critical features or tasks first, and handle less important ones later, test each part, and refine based on the client’s response until the final product is satisfactory. Since ChocAn connects to external systems like Acme Accounting and the bank’s EFT system, flexibility is required to handle new requirements or updates without breaking existing functions while maintaining a high level of security, auditability, and data privacy. With this approach, developers can start with core features like validating members and generating reports, then tackle new ones like updating providers and processing payments later. The team can consistently maintain product quality while promptly addressing issues and releasing updates based on user feedback. These advantages of the iterative and incremental model make the system easier to maintain, evolve, and reliable and functional throughout the development process.
-
-### **3.15 What differences would you expect to find if the Chocoholics anonymous product of Appendix A were developed by an organization at CMM level 1, as opposed to an organization at level 5?**
-
-If ChocAn were made by a company at CMM Level 1, the project would be unorganized, rushed, and full of errors. Work would be unpredictable and testing would be weak, causing problems like incorrect payments or missing reports. A CMM Level 5 company would have a planned and controlled process with strict quality checks, proper testing, and continuous improvement. The result would be a reliable and accurate system that is easier to maintain and trust.
-
-### **11.24 Perform the requirements workflow for the Chocoholics Anonymous project in Appendix A.**
+## Workflow Steps
 
 1. Develop an initial understanding of the target domain:  
    * Research basic information about ChocoAn’s purpose, services, target market   
@@ -36,7 +20,7 @@ If ChocAn were made by a company at CMM Level 1, the project would be unorganize
    * Test the system/logic against the requirements.  
    * Check if the model behaves correctly in different types of cases (valid and invalid inputs).
 
-#### ***Glossary***
+## ***Glossary***
 
 | Term | Meaning |
 | :---- | :---- |
@@ -64,7 +48,7 @@ If ChocAn were made by a company at CMM Level 1, the project would be unorganize
 * We need a way to actually conduct a local transaction in our UML diagram.  
   * Something like "record service" that stores the member number, time, service code on the terminal.
 
-#### UML Use Case Diagram
+## UML Use Case Diagram
 
 ![placeholder-replace-with-source.png]()
 
@@ -72,9 +56,9 @@ If ChocAn were made by a company at CMM Level 1, the project would be unorganize
 // To be added with the `.gaphor` file later.
 ```
 
-#### **Defining Requirements** (Functional and Non-Functional)
+## **Defining Requirements** (Functional and Non-Functional)
 
-##### Functional Requirements (what the system must do)
+### Functional Requirements (what the system must do)
 
 1. Check Member  
 * The provider types in a 9 digit member number  
@@ -120,7 +104,7 @@ If ChocAn were made by a company at CMM Level 1, the project would be unorganize
 * A provider can ask for a list of all services with their six digit codes and fees  
 * The system saves this list as a file
  
-##### Non-Functional Requirements (how the system should behave)
+### Non-Functional Requirements (how the system should behave)
 
 1. Time  
 * The main accounting job runs every Friday at 12 am  
@@ -143,7 +127,7 @@ If ChocAn were made by a company at CMM Level 1, the project would be unorganize
 * Reports and directories are saved as files not actually sent by email  
 * The ETF file only needs the provider name, provider number and amount to pay
 
-#### Use-Case Descriptions
+## Use-Case Descriptions
 
 | Brief Description |
 | :---- |

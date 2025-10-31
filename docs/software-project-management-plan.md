@@ -43,7 +43,7 @@ Any change to this plan must be approved by the engineering team, and recorded s
 
 ## Reference Materials
 
-All work will follow the textbook standards for coding documents, testing, and reviews. 
+All work will follow the textbook standards[@Schach2010] for coding documents, testing, and reviews. 
 
 ## Definitions and Acronyms
 

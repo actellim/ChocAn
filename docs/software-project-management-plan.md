@@ -206,7 +206,7 @@ A password is needed to perform CRUD operations on the database. Providers login
 
 Training will be given by Vu at delivery. One day is expected. Questions for the first year are supported at no cost.
 
-8.3 Maintenance
+### 8.3 Maintenance
 
 The team provides the software as-is, without warranty, with a full apache-2 license. Enhancements will use a separate agreement.
 

@@ -13,7 +13,7 @@ bibliography: references.bib
 #### Purpose, Scope, and Objectives
 
 The goal is to build ChocAn’s Project, a software product that supports provider terminal and ChocAn database interaction.  
-The product will let the client add, edit, and delete the needed records, run the required checks, and produce weekly reports and payment files. *Nort Light Software* will deliver a working product that meets all stated requirements, and ship the product to the client on time. *North Light Software* will produce clear reports and correct totals.
+The product will let the client add, edit, and delete the needed records, run the required checks, and produce weekly reports and payment files. *North Light Software* will deliver a working product that meets all stated requirements, and ship the product to the client on time. *North Light Software* will produce clear reports and correct totals.
 
 #### Assumptions and Constraints
 
@@ -37,7 +37,7 @@ The workflow estimates are as follows:
 - Design workflow – 1 week, three people, 20h.
 - Implementation workflow – 1 week, three people, 50h.
 - Testing workflow – 1 week, three people, 30h.
-- Total 10 weeks and 132h.
+- Total 7 weeks and 132h.
 
 #### Evolution of the Project Management Plan
 
@@ -80,7 +80,7 @@ Total time to hand-off is 7 weeks in total. Internal time cost is estimated to b
 
 #### Staffing Plan
 
-The three engineering students are needed for all 10 weeks, first 5 weeks as analysts and designers, then as developers and testers.
+The three engineering students are needed for all 7 weeks, first 5 weeks as analysts and designers, then as developers and testers.
 
 #### Resource Acquisition Plan
 

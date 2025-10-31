@@ -62,11 +62,7 @@ Acknowledgement is given to Dr. Ayman Diyab for providing slides and required kn
 
 ## UML Use Case Diagram
 
-![placeholder-replace-with-source.png]()
-
-```c++
-// To be added with the `.gaphor` file later.
-```
+![placeholder-replace-with-source.png](assets/use-cases.png)
 
 ## **Defining Requirements** (Functional and Non-Functional)
 

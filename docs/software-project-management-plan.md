@@ -18,10 +18,11 @@ The product will let the client add, edit, and delete the needed records, run th
 #### Assumptions and Constraints
 
 Constraints include the following:  
-* We must meet the deadline and stay within the budget.
-* The product must be reliable and easy to maintain.
-* The design must allow new features later.
-* The user interface must be simple.
+
+- We must meet the deadline and stay within the budget.
+- The product must be reliable and easy to maintain.
+- The design must allow new features later.
+- The user interface must be simple.
 
 #### Project Deliverables
 
@@ -30,12 +31,13 @@ Constraints include the following:
 #### Schedule and Budget Summary
 
 The workflow estimates are as follows:
-* Requirements workflow – 3 weeks, three people, 12h.
-* Analysis workflow – 1 week, three people 20h.
-* Design workflow – 1 week, three people, 20h.
-* Implementation workflow – 1 week, three people, 50h.
-* Testing workflow – 1 week, three people, 30h.
-* Total 10 weeks and 132h.
+
+- Requirements workflow – 3 weeks, three people, 12h.
+- Analysis workflow – 1 week, three people 20h.
+- Design workflow – 1 week, three people, 20h.
+- Implementation workflow – 1 week, three people, 50h.
+- Testing workflow – 1 week, three people, 30h.
+- Total 10 weeks and 132h.
 
 #### Evolution of the Project Management Plan
 

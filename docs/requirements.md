@@ -1,4 +1,16 @@
+---
+title: Requirements
+subtitle: For the ChocAn Project
+bibliography: references.bib
+nocite: |
+    @*
+---
+
 # Requirements
+
+## Acknowledgement
+
+Acknowledgement is given to Dr. Ayman Diyab for providing slides and required knowledge during lectures for the Term Project and to Mr. Mohammed AbuFoul for explanation and guides during laboratory session.
 
 ## Workflow Steps
 
@@ -261,4 +273,6 @@
 |  The `Save Service` use case allows a provider to store the services they render on their terminal, to be retrieved and uploaded to the ChocAn data center. |
 | **Step-by-Step Description** |
 | Receives a service from a provider containing `dateOfService`, `providerName` and `serviceName`. Stores the data in the terminal as `unsubmitted`. |
+
+## References {-}
 

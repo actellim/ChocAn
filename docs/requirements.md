@@ -61,71 +61,60 @@
 ### Functional Requirements (what the system must do)
 
 1. Check Member  
-* The provider types in a 9 digit member number  
-* The system checks the number and shows one of these: Validated, Invalid number or Member suspended
-
+    * The provider types in a 9 digit member number  
+    * The system checks the number and shows one of these: Validated, Invalid number or Member suspended
 2. Record a Service  
-* After the member is confirmed, the provider enters:
-  o   Date the service was given (MM-DD-YYYY)
-  o   Provider number (9 digits)
-  o   Member number (9 digits)
-  o   Service code (6 digits)
-  o   Comment if needed (up to 100 letters)
-* The system saves this record with today’s date and time (MM-DD-YYYY HH:MM:SS)
-
+    * After the member is confirmed, the provider enters:
+      *   Date the service was given (MM-DD-YYYY)
+      *   Provider number (9 digits)
+      *   Member number (9 digits)
+      *   Service code (6 digits)
+      *   Comment if needed (up to 100 letters)
+    * The system saves this record with today’s date and time (MM-DD-YYYY HH:MM:SS)
 3. Find a Service Code  
-* The provider looks in the Provider Directory for the right six digit code  
-* The system shows the name of the service so the provider can check it  
-  If the code is wrong the system shows an error message
-
+    * The provider looks in the Provider Directory for the right six digit code  
+    * The system shows the name of the service so the provider can check it  
+    * If the code is wrong the system shows an error message
 4. Show the Fee  
-* The system looks up the fee for the chosen service and shows it on the screen
-
+    * The system looks up the fee for the chosen service and shows it on the screen
 5. Weekly Provider Report  
-* Every Friday at midnight, the system makes a report for each provider who gave services that week  
-* The report lists the provider’s name, number, address and all services done that week with the date, member name, member number, code, fee, total visits and total amount
-
+    * Every Friday at midnight, the system makes a report for each provider who gave services that week  
+    * The report lists the provider’s name, number, address and all services done that week with the date, member name, member number, code, fee, total visits and total amount
 6. Weekly Member Report  
-* Each member who had a service that week gets a report  
-* It lists the services in date order and shows the date, provider name and service name, plus the member’s name, number and address
-
+    * Each member who had a service that week gets a report  
+    * It lists the services in date order and shows the date, provider name and service name, plus the member’s name, number and address
 7. EFT File for Payment  
-* The system makes a payment file that shows the provider name, number and total amount to be paid.
-
+    * The system makes a payment file that shows the provider name, number and total amount to be paid.
 8. Summary Report  
-* The system makes a summary for the accounts manager  
-* It lists every provider, how many visits they had, each provider’s total and the overall totals for the week.
-
+    * The system makes a summary for the accounts manager  
+    * It lists every provider, how many visits they had, each provider’s total and the overall totals for the week.
 9. Update Member and Provider Info  
-* Staff at the Data Center can add, delete or update member records  
-* They can also add, delete or update provider records
-
+    * Staff at the Data Center can add, delete or update member records  
+    * They can also add, delete or update provider records
 10. Provider Directory File  
-* A provider can ask for a list of all services with their six digit codes and fees  
-* The system saves this list as a file
+    * A provider can ask for a list of all services with their six digit codes and fees  
+    * The system saves this list as a file
  
 ### Non-Functional Requirements (how the system should behave)
 
 1. Time  
-* The main accounting job runs every Friday at 12 am  
-* Reports can also be made any time if needed
-
+    * The main accounting job runs every Friday at 12 am  
+    * Reports can also be made any time if needed
 2. Data Rules and Formats  
-* Member number – 9 digits  
-* Provider number – 9 digits  
-* Service code – 6 digits  
-* Member name – 25 letters  
-* Provider name – 25 letters  
-* Comments – up to 100 letters  
-* Fee per service – max $999.99  
-* Total weekly fee – max $99 999.99  
-* Use date format MM-DD-YYYY and time HH:MM:SS
-
+    * Member number – 9 digits  
+    * Provider number – 9 digits  
+    * Service code – 6 digits  
+    * Member name – 25 letters  
+    * Provider name – 25 letters  
+    * Comments – up to 100 letters  
+    * Fee per service – max $999.99  
+    * Total weekly fee – max $99 999.99  
+    * Use date format MM-DD-YYYY and time HH:MM:SS
 3. Simulation and Limits  
-* Other companies handle the terminals, EFT system and fee payments  
-* This system only uses the keyboard for input and shows results on the screen  
-* Reports and directories are saved as files not actually sent by email  
-* The ETF file only needs the provider name, provider number and amount to pay
+    * Other companies handle the terminals, EFT system and fee payments  
+    * This system only uses the keyboard for input and shows results on the screen  
+    * Reports and directories are saved as files not actually sent by email  
+    * The ETF file only needs the provider name, provider number and amount to pay
 
 ## Use-Case Descriptions
 

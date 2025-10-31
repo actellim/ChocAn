@@ -131,117 +131,145 @@
 
 | Brief Description |
 | :---- |
-| The Verify Member Number use case enables providers to ensure that a person's ChocAn membership is currently valid. |
+| The `Verify Member Number` use case enables providers to ensure that a person's ChocAn membership is currently valid. |
 | **Step-by-Step Description** |
 | Sends a query to the ChocAn data center containing a member number. Receives a response of either valid, member suspended, or invalid. Prints the response from the ChocAn data center. |
-| **Brief Description** |
-| The Verify Provider Number use case verifies providers are registered with the ChocAn system for proper accounting. |
+
+| Brief Description |
+| :---- |
+| The `Verify Provider Number` use case verifies providers are registered with the ChocAn system for proper accounting. |
 | **Step-by-Step Description** |
 | Runs once when the provider’s terminal is powered on. Sends a request to the ChocAn data center containing the provider’s number. Prints the return value of valid, or invalid. If invalid, re-prompts for the providerId. |
-| **Brief Description** |
-| The Request Provider Directory use case allows the provider to update and view all services and their service numbers and associated fees. |
+
+| Brief Description |
+| :---- |
+| The `Request Provider Directory` use case allows the provider to update and view all services and their service numbers and associated fees. |
 | **Step-by-Step Description** |
 | Gets a list of serviceName and serviceCodes by calling the Lookup Service Code use case. Gets a list of associated fees by calling the Lookup Fee use case with a list of service Codes.  Sends an e-mail from the provider’s terminal to the provider containing a list of serviceNames, serviceCodes, and their associated serviceFees. |
-| **Brief Description** |
-| The Lookup Service Code use case calls from the terminal to the ChocAn Data center to retrieve an updated list of service codes and their accompanying descriptions. |
+
+| Brief Description |
+| :---- |
+| The `Lookup Service Code` use case calls from the terminal to the ChocAn Data center to retrieve an updated list of service codes and their accompanying descriptions. |
 | **Step-by-Step Description** |
 | Take a request containing a service code or get a service list. Sends a request to the ChocAn data center requesting service code validation or the table containing serviceNames and serviceCodes. Returns either service valid or the list of serviceNames and serviceCodes. |
-| **Brief Description** |
-| The Lookup Fee use case takes a service code and looks up its associated fee. |
+
+| Brief Description |
+| :---- |
+| The `Lookup Fee` use case takes a service code and looks up its associated fee. |
 | **Step-by-Step Description** |
 | Receives a request containing a serviceCode or list of serviceCodes. Uses the Check Fee use case to retrieve the associated fees from the ChocAn database. Returns the serviceCode or serviceCodes and their serviceFees. |
-| **Brief Description** |
-| The Bill ChocAn Use case runs weekly from the provider's terminals to send a bill to the ChocAn database containing all the services, their codes, and associated fees, as well as the provider's number. |
+
+| Brief Description |
+| :---- |
+| The `Bill ChocAn` use case runs weekly from the provider's terminals to send a bill to the ChocAn database containing all the services, their codes, and associated fees, as well as the provider's number. |
 | **Step-by-Step Description** |
 | Gets a list of serviceCodes, `dateOfService`, and `providerName` for the week by utilizing the Retrieve Services use case. Sends the list of serviceCodes retrieved in step 1 to the Calculate Weekly Fee use case. Receives a total fee and a list of serviceCodes and serviceFees from the Calculate Weekly Fee use case. Sends the `totalFee`, and list of serviceCodes, `dateOfService`s, `providerName`, `memberName`s, `memberNumber`s, and serviceFees, `totalConsultations`, to the ChocAn Data center. |
-| **Brief Description** |
-| The Calculate Weekly Fee use case takes the list of completed service codes on the provider's terminal for the week and totals the fees for them.  |
+
+| Brief Description |
+| :---- |
+| The `Calculate Weekly Fee` use case takes the list of completed service codes on the provider's terminal for the week and totals the fees for them.  |
 | **Step-by-Step Description** |
 | Receives a list of serviceCodes from the Bill ChocAn use case. Uses the Lookup Fee use case to get serviceFees for each serviceCode. Total the serviceFees from the Lookup Fee use case in step 2\. Returns the totalFee, serviceFees, and their associated serviceCodes. |
-| **Brief Description** |
-| The Check Member Number use case takes a member number, queries the database and returns if it's valid or invalid. |
+
+| Brief Description |
+| :---- |
+| The `Check Member Number` use case takes a member number, queries the database and returns if it's valid or invalid. |
 | **Step-by-Step Description** |
 | Receives a member number from the Verify Member Number use case. Queries the ChocAn database with the member number received from the Verify Member Number use case. Returns the current member status. |
-| **Brief Description** |
-| The Check Provider Number use case takes a provider number, queries the database and returns valid or invalid. |
+
+| Brief Description |
+| :---- |
+| The `Check Provider Number` use case takes a provider number, queries the database and returns valid or invalid. |
 | **Step-by-Step Description** |
 | Receives a member number from the Verify Provider Number use case. Queries the ChocAn database with the provider number. Returns either valid or invalid. |
-| **Brief Description** |
-| The Check Service Code use case queries the server for all currently available service codes and their associated descriptions, and returns them to the terminal. |
+
+| Brief Description |
+| :---- |
+| The `Check Service Code` use case queries the server for all currently available service codes and their associated descriptions, and returns them to the terminal. |
 | **Step-by-Step Description** |
 | Receives a list of service codes from the Lookup Service Code use case. Queries the ChocAn database with the code or list of service codes. Returns the serviceCodes and their associated serviceNames. |
-| **Brief Description** |
-| The Check Fee use case takes a list of service codes and returns their associated fees. |
+
+| Brief Description |
+| :---- |
+| The `Check Fee` use case takes a list of service codes and returns their associated fees. |
 | **Step-by-Step Description** |
 | Receives a list of serviceCodes from the Lookup Fee use case. Queries the ChocAn database with the serviceCodes received in step 1\. Returns the serviceCodes and their associated serviceFees. |
-| **Brief Description** |
-| The Store Weekly Fees use case takes a list of services and their associated fees and fee total from a provider for the week. |
+
+| Brief Description |
+| :---- |
+| The `Store Weekly Fees` use case takes a list of services and their associated fees and fee total from a provider for the week. |
 | **Step-by-Step Description** |
 | Receives a list of `serviceCode`s, `serviceFee`s, and a `totalFee` from the `Bill ChocAn` use case. Stores the list in the ChocAn database. |
-| **Brief Description** |
-| The Weekly Report Generation gathers all the provider's fees from the past week that are currently in the db and totals them up. |
+
+| Brief Description |
+| :---- |
+| The `Weekly Report Generation` gathers all the provider's fees from the past week that are currently in the db and totals them up. |
 | **Step-by-Step Description** |
 | Receives a request from the `Weekly Accounting` use case with a range of dates. Sends a request to the `Get Weekly Fees` use case to retrieve all fees that were delivered in the range of dates provided in step 1\. Receives a response from the `Get Weekly Fees` use case containing a list of dates and total fees in that date range. Generates a report containing all of the weekly fees for the week, the total of weekly fees. Returns the total of weekly fees to the `Weekly Accounting` use case. |
-| **Brief Description** |
-| The Weekly Accounting use case takes the weekly fees from the weekly report generation and sends them to Acme Accounting Services. |
+
+| Brief Description |
+| :---- |
+| The `Weekly Accounting` use case takes the weekly fees from the weekly report generation and sends them to Acme Accounting Services. |
 | **Step-by-Step Description** |
 | Runs on a schedule every Friday at 12am. Sends a request to the `Weekly Report Generation` use case. Receives a total of weekly fees from the `Weekly Report Generation` use case. Sends the total of weekly fees to Acme Accounting. |
-| **Brief Description** |
-| The Print Financial Report use case gets the weekly fees in the database for the week and prints them. |
+
+| Brief Description |
+| :---- |
+| The `Print Financial Report` use case gets the weekly fees in the database for the week and prints them. |
 | **Step-by-Step Description** |
 | Sends a request containing the date range from last Friday at 12am to present to the `Get Weekly Fees` use case.  Receives a response from the `Get Weekly Fees` use case containing a list of all the weekly fees currently in the ChocAn database in the date range. Prints a Financial Report containing all the Weekly Fees and their associated provider numbers. |
 
 | Brief Description |
 | :---- |
-| The add provider use case allows a ChocAn operator to add a provider to the ChocAn database. |
+| The `Add Provider` use case allows a ChocAn operator to add a provider to the ChocAn database. |
 | **Step-by-Step Description** |
 | Receives a provider number, and a provider name from a ChocAn operator. Adds the provider to the ChocAn database. |
 
 | Brief Description |
 | :---- |
-| The Delete Provider use case allows a ChocAn operator to remove a provider from the ChocAn database. |
+| The `Delete Provider` use case allows a ChocAn operator to remove a provider from the ChocAn database. |
 | **Step-by-Step Description** |
 | Receives a provider number from a ChocAn operator. Removes the provider from the ChocAn database. |
 
 | Brief Description |
 | :---- |
-|  The  Update Provider use case allows a ChocAn operator to change details about a provider. |
+|  The  `Update Provider` use case allows a ChocAn operator to change details about a provider. |
 | **Step-by-Step Description** |
 | Receives a provider number and optionally a provider name, street address, city, state, zip to update for the given provider number. Updates the database entry for the provider number with the new information. |
 
 | Brief Description |
 | :---- |
-| The Add Member use case allows a ChocAn operator to add a new member to the ChocAn database. |
+| The `Add Member` use case allows a ChocAn operator to add a new member to the ChocAn database. |
 | **Step-by-Step Description** |
 | Receives a member number and member name from a ChocAn operator. Adds the member number and associated member name to the ChocAn database. |
 
 | Brief Description |
 | :---- |
-| The Delete Member use case allows a ChocAn operator to remove a member from the ChocAn database. |
+| The `Delete Member` use case allows a ChocAn operator to remove a member from the ChocAn database. |
 | **Step-by-Step Description** |
 | Receives a member number from a ChocAn operator. Removes the member associated with the member number from the ChocAn database. |
 
 | Brief Description |
 | :---- |
-| The Update Member use case allows a ChocAn operator to edit details about a member in the ChocAn database. |
+| The `Update Member` use case allows a ChocAn operator to edit details about a member in the ChocAn database. |
 | **Step-by-Step Description** |
 | Receives a member number and optionally a member name, member street address, member city, member state, member zip from a ChocAn operator. Updates the database entry for the given member number with any optionally included entries from step 1\. |
 
 | Brief Description |
 | :---- |
-| The Get Weekly Fees use case gets the fees from the DB for the current or previous week. |
+| The `Get Weekly Fees` use case gets the fees from the DB for the current or previous week. |
 | **Step-by-Step Description** |
 | Receives a range of dates. Queries the ChocAn database for all `totalFee`s in the range of dates. Returns the list of `totalFees` for the given date range. |
 
 | Brief Description |
 | :---- |
-| The Retrieve Services use case fetches the services the provider has rendered in the past week.  |
+| The `Retrieve Services` use case fetches the services the provider has rendered in the past week.  |
 | **Step-by-Step Description** |
 | Receives a request from the `Bill ChocAn` use case for a list of services. Queries the terminal for all `unsubmitted` services. Returns a list of all `unsubmitted` services, their associated `serviceId`s. Marks the services in the terminal as `submitted`. |
 
 | Brief Description |
 | :---- |
-|  The Save Service use case allows a provider to store the services they render on their terminal, to be retrieved and uploaded to the ChocAn data center. |
+|  The `Save Service` use case allows a provider to store the services they render on their terminal, to be retrieved and uploaded to the ChocAn data center. |
 | **Step-by-Step Description** |
 | Receives a service from a provider containing `dateOfService`, `providerName` and `serviceName`. Stores the data in the terminal as `unsubmitted`. |
 

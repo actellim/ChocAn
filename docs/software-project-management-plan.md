@@ -198,4 +198,4 @@ Training will be given by Vu at delivery. One day is expected. Questions for the
 
 The team provides the software as-is, without warranty, with a full apache-2 license. Enhancements will use a separate agreement.
 
-## References
+## References {-}

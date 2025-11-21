@@ -61,15 +61,15 @@ This part describes what the system does for each actor. Each use case shows a m
 
 | *Use Case* | *Brief Description* |
 | ----- | ----- |
-| Verify Member Number | The Verify Member Number use case enables providers to ensure that a person’s ChocAn membership is currently valid. |
-| Verify Provider Number | The Verify Provider Number use case verifies providers are registered with the ChocAn system for proper accounting. |
+| Verify Member Number (Provider) | The Verify Member Number use case enables providers to ensure that a person’s ChocAn membership is currently valid. |
+| Verify Provider Number (Provider) | The Verify Provider Number use case allows providers to verify they are registered with the ChocAn system for proper accounting. |
 | Request Provider Directory | The Request Provider Directory use case allows the provider to update and view all services and their service numbers and associated fees. |
 | Lookup Service Code | The Lookup Service Code use case calls from the terminal to the ChocAn Data Center to retrieve an updated list of service codes and their accompanying descriptions. |
 | Lookup Fee | The Lookup Fee use case takes a service code and looks up its associated fee. |
 | Bill ChocAn | The Bill ChocAn use case runs weekly from the provider’s terminals to send a bill to the ChocAn database containing all the services, their codes, and associated fees, as well as the provider’s number. |
 | Calculate Weekly Fee | The Calculate Weekly Fee use case takes the list of completed service codes on the provider’s terminal for the week and totals the fees for them. |
-| Check Member Number | The Check Member Number use case takes a member number, queries the database and returns if it’s valid or invalid. |
-| Check Provider Number | The Check Provider Number use case takes a provider number, queries the ChocAn database and returns valid or invalid. |
+| Check Member Number (Server) | The Check Member Number use case takes a member number, queries the database and returns if it’s valid or invalid. |
+| Check Provider Number (Server) | The Check Provider Number use case takes a provider number, queries the ChocAn database and returns valid or invalid. |
 | Check Service Code | The Check Service Code use case queries the server for all currently available service codes and their associated descriptions, and returns them to the terminal. |
 | Check Fee | The Check Fee use case takes a list of service codes and returns their associated fees. |
 | Store Weekly Fees | The Store Weekly Fees use case takes a list of services and their associated fees and fee total from a provider for the week. |
@@ -82,6 +82,9 @@ This part describes what the system does for each actor. Each use case shows a m
 | Add Member | The Add Member use case allows a ChocAn operator to add a new member to the ChocAn database. |
 | Delete Member | The Delete Member use case allows a ChocAn operator to remove a member from the ChocAn database. |
 | Update Member | The Update Member use case allows a ChocAn operator to edit details about a member in the ChocAn database. |
+| Add Service Code | The Add Service Code use case allows a ChocAn operator to add a new service code to the service directory. |
+| Update Service Code | The Update Service Code use case allows a ChocAn operator to update an existing service code in the service directory. |
+| Delete Service Code | The Delete Service Code use case allows a ChocAn operator to delete an existing service code in the service directory. |
 | Get Weekly Fees | The Get Weekly Fees use case gets the fees from the DB for the current or previous week. |
 | Retrieve Services | The Retrieve Services use case fetches the services the provider has rendered in the past week. |
 | Save Service | The Save Service use case allows a provider to store the services they render on their terminal, to be retrieved and uploaded to the ChocAn Data Center. |

@@ -140,7 +140,7 @@ Lists the system main classes what each one is responsible for and which other c
 | :---- |
 | RESPONSIBILITY |
 | 1. Receive provider number member number date of service service code and comment |
-| 2. Display validation messages such as Validated Invalid Number and Member Suspended |
+| 2. Display validation messages such as "Validated", "Invalid Number" and "Member Suspended" |
 | 3. Request service name and fee from Directory through BillingControl |
 | 4. Send completed service information to BillingControl |
 | 5. Display final confirmation after the service record is stored |
@@ -314,6 +314,15 @@ This section checks if the ChocAn system works properly. Each test follows the m
 | 5. Directory |
 | 6. ServiceRecord |
 : System Test Classes
+
+### Test Workflow (Sample Test Cases)
+
+| Test ID | Use Case | Test Condition | Expected Result | Class Responsibility Checked |
+| :--- | :--- | :--- | :--- | :--- |
+| AB-BC-001 | Record Service Provided | Member status is suspended, valid provider, correct date and service code | ProviderTerminal displays **Member Suspended** and stops the transaction. No ServiceRecord is created. | Confirms ValidationControl correctly interprets Member status |
+| AB-BC-002 | Record Service Provided | Valid provider and member, non existent 6 digit service code (example 000000) | ProviderTerminal displays **Invalid Service Code** | Confirms BillingControl handles invalid service code lookup |
+| AB-BC-003 | Weekly Processing | Friday midnight batch run | DataCenter creates Member Reports, Provider Reports, the Summary Report, and the EFTFile | Confirms DataCenter reporting and weekly output generation |
+
 
 ## Responsibility Table  
 

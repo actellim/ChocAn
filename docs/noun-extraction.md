@@ -117,13 +117,63 @@
 - ChocAn Manager
 - ChocAn Operator
 
-## Candidate Classes
+## Candidate Class List
 
 - Member
 - Provider
-- Provider Services/Services
+- Services/Provider Services
 - Service Fees
 - Billing
 - ChocAn Database
 - ChocAn Employees
+
+## Candidate Class Expansion
+
+### Member
+
+- Attributes:
+    - memberID: int
+- Methods:
+    - checkMemberID()
+
+### Provider
+
+- Attributes:
+    - providerID: int
+- Methods:
+    - checkProviderID()
+
+### ServiceList
+
+- Attributes:
+    - serviceList dict{id: service}
+
+### Service
+
+- Attributes:
+    - serviceID int
+    - serviceFee float(2)
+    - serviceNameList string
+    - serviceDescList string
+- Methods:
+
+### Fees
+
+- Attributes:
+- Methods:
+
+### Billing
+
+- Attributes:
+- Methods:
+
+### ChocAnDB
+
+- Attributes:
+- Methods:
+
+### ChocAnEmployees
+
+- Attributes:
+- Methods:
 

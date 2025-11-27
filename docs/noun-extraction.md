@@ -142,38 +142,77 @@
     - providerID: int
 - Methods:
     - checkProviderID()
+    - getProviderID()
+
+### ServiceInstance
+
+- Attributes:
+    - rendered: Service
+    - customer: Int
+    - time: arr(Date, Time)
+- Methods:
+    - save()            // Saves an instance of a service locally
 
 ### ServiceList
 
 - Attributes:
-    - serviceList dict{id: service}
+    - List: dict{id: Service}
+- Methods:
+    - refresh()         // Re-pulls from the database.
+    - createService()   // creates an instance of a service. 
+    - email(providerID) // E-mails the current service list to the provider.
 
 ### Service
 
 - Attributes:
-    - serviceID int
-    - serviceFee float(2)
-    - serviceNameList string
-    - serviceDescList string
-- Methods:
+    - ID: int
+    - Fee: float(2)
+    - Name: string
+    - Desc: string
 
 ### Fees
 
 - Attributes:
+    - currentTotal: float(2)
 - Methods:
+    - sum(date1, date2) // Gets all service instances in a range and totals
+                        // the fee
 
 ### Billing
 
 - Attributes:
+    - weeklyServices: arr(ServiceInstance)
+    - provider: providerID
+    - feeTotal: float(2)
+    - period: date
 - Methods:
+    - sum(period)       // Gets all service instances for the preceeding week and totals the fees
 
 ### ChocAnDB
 
 - Attributes:
 - Methods:
+    - addMember()
+    - removeMember(memberID)
+    - updateMember(memberID)
+    - viewMember(memberID)
+    - addProvider()
+    - removeProvider(providerID)
+    - updateProvider(providerID)
+    - viewProvider(providerID)
+    - addService()
+    - removeService(serviceID)
+    - updateService(serviceID)
+    - viewService(serviceID)
+    - getServiceList()
+    - getWeeklyFees(date)
+    - getFees(date1, date2)
 
 ### ChocAnEmployees
 
 - Attributes:
+    - ID: int
+    - name: string
+    - role: string
 - Methods:
 

@@ -139,63 +139,63 @@ Lists the system main classes what each one is responsible for and which other c
 | CLASS ProviderTerminal (Boundary) |
 | :---- |
 | RESPONSIBILITY |
-| Receive provider number member number date of service service code and comment |
-| Display validation messages such as Validated Invalid Number and Member Suspended |
-| Request service name and fee from Directory through BillingControl |
-| Send completed service information to BillingControl |
-| Display final confirmation after the service record is stored |
+| 1. Receive provider number member number date of service service code and comment |
+| 2. Display validation messages such as Validated Invalid Number and Member Suspended |
+| 3. Request service name and fee from Directory through BillingControl |
+| 4. Send completed service information to BillingControl |
+| 5. Display final confirmation after the service record is stored |
 | COLLABORATION |
-| ValidationControl |
-| BillingControl |
+| 1. ValidationControl |
+| 2. BillingControl |
 
 | CLASS ValidationControl (Control) |
 | :---- |
 | RESPONSIBILITY |
-| Validate provider numbers through DataCenter |
-| Validate member numbers and membership status |
-| Return validation results to ProviderTerminal |
+| 1. Validate provider numbers through DataCenter |
+| 2. Validate member numbers and membership status |
+| 3. Return validation results to ProviderTerminal |
 | COLLABORATION |
-| DataCenter |
-| ProviderTerminal |
+| 1. DataCenter |
+| 2. ProviderTerminal |
 
 | CLASS BillingControl (Control) |
 | :---- |
 | RESPONSIBILITY |
-| Receive record service request from ProviderTerminal after validation |
-| Request service name and fee from Directory using the service code |
-| Build a ServiceRecord with provider number member number date service code fee and comment |
-| Send the ServiceRecord to DataCenter for storage |
-| Return success or failure to ProviderTerminal |
+| 1. Receive record service request from ProviderTerminal after validation |
+| 2. Request service name and fee from Directory using the service code |
+| 3. Build a ServiceRecord with provider number member number date service code fee and comment |
+| 4. Send the ServiceRecord to DataCenter for storage |
+| 5. Return success or failure to ProviderTerminal |
 | COLLABORATION |
-| ProviderTerminal |
-| Directory |
-| DataCenter |
-| ServiceRecord |
+| 1. ProviderTerminal |
+| 2. Directory |
+| 3. DataCenter |
+| 4. ServiceRecord |
 
 | CLASS DataCenter (Control) |
 | :---- |
 | RESPONSIBILITY |
-| Store ServiceRecord entries with timestamps |
-| Validate provider and member numbers |
-| Retrieve service information for reporting and accounting |
-| Support weekly processing and report generation |
+| 1. Store ServiceRecord entries with timestamps |
+| 2. Validate provider and member numbers |
+| 3. Retrieve service information for reporting and accounting |
+| 4. Support weekly processing and report generation |
 | COLLABORATION |
-| ProviderTerminal |
-| ValidationControl |
-| BillingControl |
-| Directory |
-| Member |
-| Provider |
-| ServiceRecord |
+| 1. ProviderTerminal |
+| 2. ValidationControl |
+| 3. BillingControl |
+| 4. Directory |
+| 5. Member |
+| 6. Provider |
+| 7.ServiceRecord |
 
 | CLASS ServiceRecord (Entity) |
 | :---- |
 | RESPONSIBILITY |
-| Hold all fields for one recorded service provider number member number date of service service code fee comment and timestamp |
-| Provide data for weekly reporting and accounting |
+| 1. Hold all fields for one recorded service provider number member number date of service service code fee comment and timestamp |
+| 2. Provide data for weekly reporting and accounting |
 | COLLABORATION |
-| BillingControl |
-| DataCenter |
+| 1. BillingControl |
+| 2. DataCenter |
 
 
 ## Example Use Case Record Service Provided  

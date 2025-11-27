@@ -301,9 +301,7 @@ This section connects each system function to the class that handles it.
    
 ## Sequence Diagram  
 
-<img width="1293" height="675" alt="ChocAn - Sequence Diagram (Bill ChocAn)" src="https://github.com/user-attachments/assets/24a713f1-6b80-47c9-b8ff-da56fcce4ef6" />
-
-
+![Sequence Diagram](assets/sequence-diagram.png)
    
 ## usdiagrams  
 

@@ -322,6 +322,7 @@ This section checks if the ChocAn system works properly. Each test follows the m
 | AB-BC-001 | Record Service Provided | Member status is suspended, valid provider, correct date and service code | ProviderTerminal displays **Member Suspended** and stops the transaction. No ServiceRecord is created. | Confirms ValidationControl correctly interprets Member status |
 | AB-BC-002 | Record Service Provided | Valid provider and member, non existent 6 digit service code (example 000000) | ProviderTerminal displays **Invalid Service Code** | Confirms BillingControl handles invalid service code lookup |
 | AB-BC-003 | Weekly Processing | Friday midnight batch run | DataCenter creates Member Reports, Provider Reports, the Summary Report, and the EFTFile | Confirms DataCenter reporting and weekly output generation |
+: Test Workflow Example
 
 
 ## Responsibility Table  
@@ -390,6 +391,7 @@ This section connects each system function to the class that handles it.
 | BillingControl | The control class that looks up service information builds a ServiceRecord and sends it to the DataCenter |
 | Directory Management | The functions that allow the ChocAn operator to add update or delete service codes from the Directory |
 | Acme Accounting Services | The external organization that updates member payment status every night and tracks suspended and reinstated members |
+: Glossary of Terms
 
 
 ## Sequence Diagram  

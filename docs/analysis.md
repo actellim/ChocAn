@@ -6,102 +6,107 @@ subtitle: For the ChocAn Project
 ## Outline
 
 1. Understand How the System Works  
-    - Learn how ChocAn works with members, providers and the Data Center  
-    - Identify what the system does such as checking IDs, recording services, creating reports and sending payments  
+    - Learn how ChocAn works with members providers and the Data Center  
+    - Identify what the system does such as checking IDs recording services creating reports and sending payments  
     - Break the work into smaller steps to see how data moves  
     - Make sure everything connects correctly between users and the system
+
 2. Identify Actors and Use Cases  
-    - List all people and systems that use ChocAn such as members, providers, managers, the Data Center and Acme Accounting Services  
+    - List all people and systems that interact with ChocAn such as members providers managers the Data Center Acme Accounting Services and the ProviderTerminal  
     - Explain what each actor does  
-    - Describe the 23 main use cases  
+    - Identify all main use cases and use Record Service Provided as the main example for the analysis  
     - Make simple diagrams to show how actors and system functions connect
+
 3. Find Nouns and Create Classes  
-    - Find important nouns in the project description that show people, data or actions  
+    - Find important nouns in the project description and requirements that show people data or actions  
     - Turn these nouns into classes or attributes  
-    - Group classes as Entity, Boundary or Control  
-    - Make a table to show what each class does
+    - Group classes as Entity Boundary or Control  
+    - Make a table to show what each class does including the ServiceRecord class used in Record Service Provided
+
 4. Make CRC Cards and Responsibilities  
-    - Make CRC cards to show what each class does and who it works with  
+    - Make CRC cards to show what each class does and who it works with using Record Service Provided as the main example  
     - Keep each class focused on one main task  
     - Make sure every class connects to at least one use case
+
 5. Show How Classes Interact  
-    - Explain step by step how classes talk to each other during actions like recording a service  
+    - Explain step by step how classes talk to each other during Record Service Provided  
     - Include normal and error cases such as invalid codes or suspended members  
     - Show how control moves from user input to system logic and stored data
+
 6. Write Data Rules and Limits  
-    - List all data rules like ID length, fee size and date format  
+    - List all data rules such as ID length fee size and date format  
     - Write when special system tasks happen such as the Friday midnight batch  
     - Make a table that summarizes the data rules and limits
+
 7. Plan the Test Workflow  
-    - Write test cases for all 23 use cases  
-    - Use both correct and incorrect inputs  
+    - Write test cases for the Record Service Provided use case  
+    - Use correct and incorrect inputs  
     - Write what the expected result should be  
-    - Make a checklist to confirm reports, EFT files and updates work correctly
+    - Make a checklist to confirm reports EFT files and updates work correctly
+
 8. Finish and Review the Analysis  
-    - Review all use cases, actors and classes  
+    - Review all use cases actors and classes  
     - Make sure all descriptions are clear and correct  
     - Check that all information fits together well  
-    - Prepare tables, CRC cards and test results for submission
+    - Prepare tables CRC cards and test results for submission
+
 
 ## Actors  
 
-This section lists the main people and systems that take part in ChocAn’s operations. Each actor has a role in sending or receiving information such as providers, members, managers and the data center.
+This section lists the main people and systems that take part in ChocAn operations. Each actor sends or receives information during validation service entry reporting and weekly accounting.
 
-| *Actor* | *Description* |
-| ----- | ----- |
-| Member | A person who pays monthly fees and receives health services Each member has a nine digit ID card |
+| Actor | Description |
+|-------|-------------|
+| Member | A person who pays monthly fees and receives health services. Each member has a nine digit ID card and a status that may be valid suspended or invalid |
 | Provider | A health worker such as a dietitian doctor or exercise expert who uses the terminal to record services and submit billing information |
-| ChocAn Data Center | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares payments |
-| Manager (Accounts Payable) | Reviews provider reports and approves weekly payments |
-| Acme Accounting Services | Handles membership fee payments and updates member records every night |
-: The list of Actors.
-  
-## Use Cases  
-This part describes what the system does for each actor. Each use case shows a main task like validating IDs, recording services, creating reports and running the weekly batch.
+| ProviderTerminal | The interface used by providers to validate IDs enter service information and communicate with the Data Center |
+| ChocAn Data Center | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares weekly accounting files |
+| ChocAn Operator | A system operator who adds updates or deletes member provider and service information in the Data Center |
+| Manager Accounts Payable | Reviews the weekly reports created by the system and receives a summary of all consultations and provider totals |
+| Acme Accounting Services | Handles membership fee payments and updates member status every night |
 
-| *Use Case* | *Brief Description* |
-| ----- | ----- |
-| Verify Member Number (Provider) | The Verify Member Number use case enables providers to ensure that a person’s ChocAn membership is currently valid. |
-| Verify Provider Number (Provider) | The Verify Provider Number use case allows providers to verify they are registered with the ChocAn system for proper accounting. |
-| Request Provider Directory | The Request Provider Directory use case allows the provider to update and view all services and their service numbers and associated fees. |
-| Lookup Service Code | The Lookup Service Code use case calls from the terminal to the ChocAn Data Center to retrieve an updated list of service codes and their accompanying descriptions. |
-| Lookup Fee | The Lookup Fee use case takes a service code and looks up its associated fee. |
-| Bill ChocAn | The Bill ChocAn use case runs weekly from the provider’s terminals to send a bill to the ChocAn database containing all the services, their codes, and associated fees, as well as the provider’s number. |
-| Calculate Weekly Fee | The Calculate Weekly Fee use case takes the list of completed service codes on the provider’s terminal for the week and totals the fees for them. |
-| Check Member Number (Server) | The Check Member Number use case takes a member number, queries the database and returns if it’s valid or invalid. |
-| Check Provider Number (Server) | The Check Provider Number use case takes a provider number, queries the ChocAn database and returns valid or invalid. |
-| Check Service Code | The Check Service Code use case queries the server for all currently available service codes and their associated descriptions, and returns them to the terminal. |
-| Check Fee | The Check Fee use case takes a list of service codes and returns their associated fees. |
-| Store Weekly Fees | The Store Weekly Fees use case takes a list of services and their associated fees and fee total from a provider for the week. |
-| Weekly Report Generation | The Weekly Report Generation gathers all the provider’s fees from the past week that are currently in the DB and totals them up. |
-| Weekly Accounting | The Weekly Accounting use case takes the weekly fees from the weekly report generation and sends them to Acme Accounting Services. |
-| Print Financial Report | The Print Financial Report use case gets the weekly fees in the database for the week and prints them. |
-| Add Provider | The Add Provider use case allows a ChocAn operator to add a provider to the ChocAn database. |
-| Delete Provider | The Delete Provider use case allows a ChocAn operator to remove a provider from the ChocAn database. |
-| Update Provider | The Update Provider use case allows a ChocAn operator to change details about a provider. |
-| Add Member | The Add Member use case allows a ChocAn operator to add a new member to the ChocAn database. |
-| Delete Member | The Delete Member use case allows a ChocAn operator to remove a member from the ChocAn database. |
-| Update Member | The Update Member use case allows a ChocAn operator to edit details about a member in the ChocAn database. |
-| Add Service Code | The Add Service Code use case allows a ChocAn operator to add a new service code to the service directory. |
-| Update Service Code | The Update Service Code use case allows a ChocAn operator to update an existing service code in the service directory. |
-| Delete Service Code | The Delete Service Code use case allows a ChocAn operator to delete an existing service code in the service directory. |
-| Get Weekly Fees | The Get Weekly Fees use case gets the fees from the DB for the current or previous week. |
-| Retrieve Services | The Retrieve Services use case fetches the services the provider has rendered in the past week. |
-| Save Service | The Save Service use case allows a provider to store the services they render on their terminal, to be retrieved and uploaded to the ChocAn Data Center. |
-: Summarized list of use cases and their descriptions.
+
+## Use Cases  
+
+This part describes what the system does for each actor. Each use case represents a main task such as validating IDs recording services creating reports and running the weekly batch. Record Service Provided is used as the main example for the analysis. The Save Service use case shown in the requirements diagram refers to the same provider service entry behaviour as Record Service Provided.
+
+| Use Case | Brief Description |
+|----------|------------------|
+| Verify Member Number | Allows a provider to check if a member number is valid or suspended |
+| Verify Provider Number | Allows a provider to confirm that their provider number is registered in the ChocAn system |
+| Request Provider Directory | Allows the provider to view the list of services service codes and fees |
+| Lookup Service Code | Retrieves the service name for a given service code |
+| Lookup Fee | Retrieves the fee for a given service code |
+| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the Data Center |
+| Retrieve Services | Gets all services a provider completed within the week |
+| Weekly Report Generation | Produces weekly reports for members providers and the manager |
+| Weekly Accounting | Sends weekly fee totals and provider payments amounts to Acme Accounting Services |
+| Print Financial Report | Prints the weekly financial summary |
+| Add Provider | Allows the ChocAn operator to add a provider |
+| Delete Provider | Allows the ChocAn operator to remove a provider |
+| Update Provider | Allows the ChocAn operator to update provider information |
+| Add Member | Allows the ChocAn operator to add a member |
+| Delete Member | Allows the ChocAn operator to remove a member |
+| Update Member | Allows the ChocAn operator to update member information |
+| Add Service Code | Allows the ChocAn operator to add a new service code |
+| Update Service Code | Allows the ChocAn operator to update a service code |
+| Delete Service Code | Allows the ChocAn operator to delete a service code |
+| Get Weekly Fees | Retrieves total fees for the current or previous week |
+
 
 ## Noun Extraction  
 
 This section lists important nouns found in the project description. These nouns help identify possible classes, objects, and data the system will use.
 
 | Term | Becomes |
-| ----- | ----- |
+|------|---------|
 | Member or Member Number | Member |
 | Provider or Provider Number | Provider |
 | Service or Service Code | Service |
-| Fee, Comment, or Date | Attributes of Service |
+| Completed Service or Service Record | ServiceRecord |
+| Fee, Comment or Date | Attributes of ServiceRecord |
 | Report or Summary | Report |
-| Electronic Funds Transfer (EFT) | EFTRecord |
+| Electronic Funds Transfer EFT | EFTFile |
 | Provider Directory | Directory |
 | ChocAn Data Center | DataCenter |
 | Manager | Manager |
@@ -109,66 +114,123 @@ This section lists important nouns found in the project description. These nouns
 | Provider Terminal | ProviderTerminal |
 : Table containing nouns extracted from the Use Cases.
 
-## Entity Boundary and Control Classes
+
+## Entity, Boundary and Control Classes 
 
 | Type | Class | Purpose |
-| ----- | ----- | ----- |
-| Entity | Member | Stores member details and status active or suspended |
-| Entity | Provider | Stores provider details |
-| Entity | Service | Stores service info date code fee and comments |
-| Entity | Report | Holds data used for member provider and summary reports |
-| Entity | EFTRecord | Holds payment info for each provider |
-| Entity | Directory | Holds service names codes and fees |
-| Entity | DataCenter | Verifies IDs stores records creates reports and prepares EFT files |
-| Boundary | ProviderTerminal | Takes input from the provider and shows messages |
-| Boundary | ManagerTerminal | Lets the manager view and review reports |
-: List of classes broken down by Entity, Boundary, and Control.
+|------|--------|---------|
+| Entity | Member | Stores member information and membership status |
+| Entity | Provider | Stores provider information and provider number |
+| Entity | Service | Represents a service offered by ChocAn including service name, service code and fee used during service lookup|
+| Entity | ServiceRecord | Stores one completed service with provider number member number date of service service code fee and comment |
+| Entity | Directory | Holds all service names service codes and fees used during Record Service Provided |
+| Entity | Report | Holds weekly report information for members providers and the manager |
+| Entity | EFTFile | Holds weekly payment information for each provider |
+| Boundary | ProviderTerminal | Receives provider input validates IDs and displays service information |
+| Control | ValidationControl | Handles provider and member number validation through the DataCenter |
+| Control | BillingControl | Handles service lookup confirmation building of ServiceRecord and submission |
+| Control | DataCenter | Stores ServiceRecord entries performs validation supports reporting and runs weekly accounting |
+
 
 ## CRC Cards  
 
-Lists the system’s main classes, what each one is responsible for and which other classes it works with. Helps define how data moves between different parts of the system.
+Lists the system main classes what each one is responsible for and which other classes it works with. This helps define how data moves between different parts of the system during Record Service Provided.
 
-| CLASS Member |
+| CLASS ProviderTerminal (Boundary) |
 | :---- |
 | RESPONSIBILITY |
-| 1. Hold member number, name, address and status. |
-| 2. Store active or suspended membership information. |
-| 3. Link to all services received by this member. |
-| 4. Provide data for weekly member reports. |
-| 5. Update member information when changed. |
-| 6. Retrieve member details when validating. |
+| Receive provider number member number date of service service code and comment |
+| Display validation messages such as Validated Invalid Number and Member Suspended |
+| Request service name and fee from Directory through BillingControl |
+| Send completed service information to BillingControl |
+| Display final confirmation after the service record is stored |
 | COLLABORATION |
-: Example CRC Card
+| ValidationControl |
+| BillingControl |
+
+| CLASS ValidationControl (Control) |
+| :---- |
+| RESPONSIBILITY |
+| Validate provider numbers through DataCenter |
+| Validate member numbers and membership status |
+| Return validation results to ProviderTerminal |
+| COLLABORATION |
+| DataCenter |
+| ProviderTerminal |
+
+| CLASS BillingControl (Control) |
+| :---- |
+| RESPONSIBILITY |
+| Receive record service request from ProviderTerminal after validation |
+| Request service name and fee from Directory using the service code |
+| Build a ServiceRecord with provider number member number date service code fee and comment |
+| Send the ServiceRecord to DataCenter for storage |
+| Return success or failure to ProviderTerminal |
+| COLLABORATION |
+| ProviderTerminal |
+| Directory |
+| DataCenter |
+| ServiceRecord |
+
+| CLASS DataCenter (Control) |
+| :---- |
+| RESPONSIBILITY |
+| Store ServiceRecord entries with timestamps |
+| Validate provider and member numbers |
+| Retrieve service information for reporting and accounting |
+| Support weekly processing and report generation |
+| COLLABORATION |
+| ProviderTerminal |
+| ValidationControl |
+| BillingControl |
+| Directory |
+| Member |
+| Provider |
+| ServiceRecord |
+
+| CLASS ServiceRecord (Entity) |
+| :---- |
+| RESPONSIBILITY |
+| Hold all fields for one recorded service provider number member number date of service service code fee comment and timestamp |
+| Provide data for weekly reporting and accounting |
+| COLLABORATION |
+| BillingControl |
+| DataCenter |
+
 
 ## Example Use Case Record Service Provided  
 
-This section shows one use case in full detail. It explains step by step how the Record Service Provided process happens from logging in to saving a completed record.  
+This section shows one use case in full detail. It explains step by step how the Record Service Provided process happens from logging in to saving a completed record.
 
-### Step-by-Step Description  
+### Step by Step Description
 
-1. The provider turns on the terminal and enters their nine-digit provider number.  
-2. The terminal sends the number to Validation Control to check it in the Data Center.  
-3. The system shows “Validated” if the number is correct. If not, it shows “Invalid Number” and asks again.  
-4. The provider slides the member card or types the member’s number.  
-5. Validation Control checks the member record in the Data Center.  
-6. If the member is active, the screen shows “Validated.” If the member is suspended, it shows “Member Suspended,” and the process stops.  
-7. The provider types the date of service, service code, and any short comments.  
-8. The terminal sends that information to Billing Control.  
-9. Billing Control uses the Directory to find the service name and fee.  
-10. The system shows the service name and fee so the provider can check and confirm.  
-11. After the provider confirms, the system saves all the details in the Data Center.  
-12. The Data Center stores the record with the date, time, provider number, member number, service code, fee, and comments.  
-13. The terminal shows the message “Service Recorded Successfully.”  
+1. Provider enters provider number into the ProviderTerminal
+2. ProviderTerminal sends the provider number to ValidationControl
+3. ValidationControl checks the DataCenter and returns "Validated" or "Invalid Number"
+4. Provider enters member number into the ProviderTerminal
+5. ValidationControl checks the DataCenter for member status
+6. If the member is suspended the ProviderTerminal shows Member Suspended and stops
+7. Provider enters the date of service the service code and a comment
+8. BillingControl requests the service name and fee from the Directory
+9. Directory returns the service name and fee
+10. ProviderTerminal displays the service name and fee for confirmation
+11. Provider confirms the service information
+12. ProviderTerminal sends the service details to BillingControl
+13. BillingControl builds a ServiceRecord using the provider number member number date service code fee and comment
+14. BillingControl sends the completed ServiceRecord to the DataCenter
+15. DataCenter stores the ServiceRecord with a timestamp
+16. ProviderTerminal displays Service Recorded Successfully
+
 
 ## Weekly Processing  
 
 1. At midnight on Friday the system starts automatic weekly processing  
 2. The Data Center reads all service records from that week  
 3. A Member Report is created for each member showing all services they received  
-4. A Provider Report is made for each provider with all services done and total fees  
-5. A Summary Report is created for the manager showing total providers consultations and overall payments  
-6. An EFT File is created for each provider with payment details  
-7. The manager reviews and approves all reports  
+4. A Provider Report is created for each provider with the list of services performed and the total fees  
+5. A Summary Report is created showing the total number of providers total consultations and the total amount paid  
+6. An EFT File is created for each provider containing the amount to be paid for the week  
+7. The reports and EFT files are stored so they can be reviewed by the manager  
 
 ***All reports stay stored in files for review and testing.***
 
@@ -176,82 +238,81 @@ This section shows one use case in full detail. It explains step by step how the
 
 | Field | Rule or Limit |
 | ----- | ----- |
-| Member or Provider Number | 9 digits |
+| Member Number | 9 digits |
+| Provider Number | 9 digits |
 | Service Code | 6 digits |
 | Service Name | Up to 20 characters |
 | Comment | Up to 100 characters |
 | Fee | Up to $999.99 |
 | Weekly Total | Up to $99,999.99 |
-| Date Format | MM-DD-YYYY |
-| Time Format | MM-DD-YYYY HH:MM:SS |
-| Batch Run | Every Friday at 12 A.M. |
-| Input and Output | Keyboard and screen |
-| File Naming | Name+Date.doc |
+| Date Format | MM/DD/YYYY |
+| Timestamp Format | MM/DD/YYYY HH:MM:SS |
+| Weekly Batch Run | Every Friday at 12 AM |
+| Input and Output | Keyboard input and screen output only |
+| File Output | One file per Member Report Provider Report Summary Report and EFT File |
 : Data restrictions.
 
-## Message Flow (Step-by-Step Version)  
+## Message Flow (Step by Step Version)
 
-This message flow shows how information moves through the system when a provider records a service for a member.
+This message flow shows how information moves through the system when a provider records a service for a member, using the Record Service Provided use case.
 
-### Step-by-Step Message Flow
+### Step by Step Message Flow
 
-1. The Provider starts by entering their provider number into the ProviderTerminal.
-2. The ProviderTerminal sends the provider number to the DataCenter.
-3. The DataCenter checks if the provider number is valid.
-4. If valid, the ProviderTerminal displays “Validated.”
-5. The Provider then enters the member number.
-6. The ProviderTerminal sends the member number to the DataCenter.
-7. The DataCenter checks if the member number is active, invalid, or suspended.
-8. The ProviderTerminal shows the result on screen.
-9. If both IDs are valid, the Provider enters the date of service, service code, and any comments.
-10. The ProviderTerminal looks up the service name and fee from the Directory.
-11. The ProviderTerminal sends the service details to the DataCenter.
-12. The DataCenter stores the record, including provider number, member number, service code, date, and comments.
-13. The DataCenter sends confirmation back to the ProviderTerminal.
-14. The ProviderTerminal shows “Service Recorded Successfully” to the Provider.
+1. The Provider enters their provider number into the ProviderTerminal
+2. The ProviderTerminal sends the provider number to ValidationControl
+3. ValidationControl asks the DataCenter to verify the provider number
+4. The DataCenter returns the validation result to ValidationControl
+5. The ProviderTerminal displays “Validated” or “Invalid Number”
+6. The Provider enters the member number
+7. The ProviderTerminal sends the member number to ValidationControl
+8. ValidationControl checks the member status through the DataCenter
+9. The ProviderTerminal displays “Validated”, “Invalid Number” or “Member Suspended”
+10. If both numbers are valid the Provider enters the date of service service code and a comment
+11. The ProviderTerminal sends the service code to BillingControl  
+12. BillingControl requests the service name and fee from the Directory  
+13. The Directory returns the service name and fee to BillingControl  
+14. BillingControl sends the service name and fee to the ProviderTerminal for confirmation  
+15. After the Provider confirms the ProviderTerminal sends all service details to BillingControl  
+16. BillingControl builds a ServiceRecord using the provider number member number date service code fee and comment  
+17. BillingControl sends the completed ServiceRecord to the DataCenter  
+18. The DataCenter stores the ServiceRecord with a timestamp  
+19. The DataCenter sends a confirmation to the ProviderTerminal  
+20. The ProviderTerminal displays Service Recorded Successfully
+
 
 ### Summary of Interaction Order
 
 | From | To | Action |
-| ----- | ----- | ----- |
-| Provider | ProviderTerminal | Enter provider number, member number, and service details |
-| ProviderTerminal | DataCenter | Send IDs and service information for checking and storage |
-| DataCenter | ProviderTerminal | Return validation messages and store confirmation |
-| ProviderTerminal | Directory | Look up service name and fee |
+|------|----|--------|
+| Provider | ProviderTerminal | Enter provider number, member number and service details |
+| ProviderTerminal | ValidationControl | Send ID validation requests |
+| ValidationControl | DataCenter | Validate provider and member numbers |
+| ProviderTerminal | BillingControl | Send service code and service details |
+| BillingControl | Directory | Request service name and fee |
+| BillingControl | DataCenter | Submit completed service record |
+| DataCenter | ProviderTerminal | Return validation and confirmation messages |
 | ProviderTerminal | Provider | Display results and confirmation |
-: Summary of Interaction order.
+
    
 ## Test Workflow  
 
-This section checks if the ChocAn system works properly. Each test follows the main steps the system does, like logging in, recording services, updating members and making reports. The goal is to make sure everything runs smoothly and shows the right results.  
+This section checks if the ChocAn system works properly. Each test follows the main steps of the **Record Service Provided** use case. The goal is to confirm that validation, service lookup and record storage all work correctly.
 
 | CLASS ChocAn System Test Class |
 | ----- |
-| RESPONSIBILTY | 
-| 1. Test Verify Provider Number by entering a valid and invalid provider ID. |
-| 2. Test Verify Member Number using valid, invalid and suspended members. |
-| 3. Test Record Service Provided to confirm the system saves correct details. |
-| 4. Test Add Member, Update Member and Delete Member to confirm changes are saved in the Data Center. |
-| 5. Test Add Provider, Update Provider, and Delete Provider for correct provider management. |
-| 6. Test Generate Member Report, Generate Provider Report and Generate Summary Report to confirm reports match stored data. |
-| 7. Test Generate EFT File to verify payment totals are correct. |
-| 8. Test Generate Provider Directory to ensure all services and codes appear alphabetically. |
-| 9. Test Run Weekly Batch to confirm reports and EFT files are created automatically. |
-| 10. Test Review Reports to confirm the manager can view and approve them. |
-| 11. Test Check Member Status to confirm active and suspended members display correctly. |
-| 12. Test Suspend Member and Reinstate Member to verify membership status changes. |
-| 13.Test Send EFT to Bank to confirm provider payments are created properly. |
+| RESPONSIBILITY | 
+| 1. Test Verify Provider Number using a valid and invalid provider numbers |
+| 2. Test Verify Member Number using a valid, invalid and suspended member numbers |
+| 3. Test Lookup Service Code to confirm the correct service name and fee appear |
+| 4. Test Record Service Provided to ensure BillingControl builds a ServiceRecord correctly and the DataCenter stores it |
+| 5. Test that the ProviderTerminal displays Service Recorded Successfully after storage |
 | COLLABORATION | 
-| 1. Provider Class |
-| 2. Member Class |
-| 3. Service Class |
-| 4. DataCenter Class |
-| 5. Directory Class |
-| 6. EFTRecord Class |
-| 7. Report Class |
-| 8. Manager Class |
-| 9. Accounting Class |
-| 10. ProviderTerminal Class |
+| 1. ProviderTerminal |
+| 2. ValidationControl |
+| 3. BillingControl |
+| 4. DataCenter |
+| 5. Directory |
+| 6. ServiceRecord |
 : System Test Classes
 
 ## Responsibility Table  
@@ -260,48 +321,72 @@ This section connects each system function to the class that handles it.
 
 | Task | Who Does It |
 | ----- | ----- |
-| Verify Provider Number | ProviderTerminal, DataCenter |
-| Verify Member Number | ProviderTerminal, DataCenter |
-| Record Service Provided | ProviderTerminal, Service, DataCenter |
-| Lookup Service Code | ProviderTerminal, Directory, DataCenter |
-| Lookup Fee | ProviderTerminal, Directory |
-| Generate Reports | DataCenter, Report, Manager |
-| Create EFT File | DataCenter, EFTRecord, Accounting |
-| Maintain Records | DataCenter, Member, Provider |
-| Generate Directory | Directory, DataCenter |
-| Run Weekly Batch | DataCenter, Accounting |
-| Error Handling | ProviderTerminal, DataCenter |
+| Verify Provider Number | ProviderTerminal ValidationControl DataCenter |
+| Verify Member Number | ProviderTerminal ValidationControl DataCenter |
+| Record Service Provided | ProviderTerminal ValidationControl BillingControl DataCenter |
+| Lookup Service Code | ProviderTerminal BillingControl Directory |
+| Lookup Fee | ProviderTerminal BillingControl Directory |
+| Generate Reports | DataCenter Report |
+| Create EFT File | DataCenter EFTFile |
+| Maintain Member and Provider Records | DataCenter Member Provider |
+| Manage Directory | Directory DataCenter |
+| Run Weekly Batch | DataCenter Report EFTFile |
+| Error Handling for IDs and Service Codes | ProviderTerminal ValidationControl BillingControl DataCenter |
 : Responsibility Breakdown
-   
-## Test Checklist  
 
-1. Test all use cases one by one  
-2. Make sure each record is stored properly  
-3. Check that all classes connect correctly  
-4. Compare reports with saved data  
-5. Confirm that data formats and limits are followed  
-6. Try invalid IDs and suspended accounts  
-7. Run the Friday batch and check all reports  
-8. Verify that EFT totals match reports  
-9. Check the provider directory order  
-10. Confirm that no real payments or emails are sent during testing  
+
+# Test Checklist
+
+1. Validate provider numbers using valid and invalid inputs
+2. Validate member numbers using active, suspended and invalid numbers
+3. Test service code lookup through BillingControl and confirm the correct service name and fee appear from the Directory  
+4. Enter service details and confirm that BillingControl creates a ServiceRecord and the DataCenter stores it correctly  
+5. Verify all system messages (“Validated”, “Invalid Number” “Member Suspended”)
+6. Test invalid inputs (bad IDs, wrong date format and non existent service codes)
+7. Run the Friday weekly batch and confirm member, provider and summary reports are generated
+8. Check that each provider’s EFTFile total matches their total fees for the week
+9. Confirm no emails or real payments are sent (file output only)
+
 
 ## Deliverables
 
-- List all use cases with details  
-- Tables for Entity Boundary and Control classes  
-- CRC cards for all main classes  
-- Sequence and message flow steps  
-- Data dictionary and field rules  
-- Test workflow and checklist  
+- Summary of actors and use cases  
+- Noun extraction and initial class identification including ServiceRecord
+- Entity Boundary Control (EBC) class tables  
+- CRC cards for the main classes  
+- One fully detailed use case (Record Service Provided)  
+- Message flow for the chosen use case  
+- Sequence diagram for the chosen use case  
+- Weekly processing summary  
+- Data rules and limits table  
 - Responsibility table  
-- Glossary and conclusion
+- Test workflow and test checklist  
+- Glossary of system terms
+
    
-## Glossary  
-   
+## 14. Glossary
+
+| Term | Definition |
+|------|------------|
+| Member | A ChocAn user who receives services. Identified by a nine digit member number. Status may be *Valid*, *Invalid*, or *Suspended* |
+| Provider | A health care professional who provides services to members and records those services through the ProviderTerminal |
+| ProviderTerminal | The interface used by providers to validate IDs, enter service information and communicate with the Data Center |
+| DataCenter | The main computer system that stores member provider and service data processes validations stores ServiceRecord entries and generates weekly reports |
+| Directory | The list of all valid service names service codes and service fees used when providers enter completed services |
+| Service Record | A stored record representing one completed service including date of service, provider number, member number, service code, fee, comments and timestamp |
+| Report | A weekly output file created for each member, provider and a summary report created for the manager showing totals for the week |
+| EFTFile | A weekly “Electronic Funds Transfer” payment file containing each provider’s name, provider's number and total amount owed for that week |
+| Weekly Batch | The automated processing that runs every Friday at midnight to read all ServiceRecord entries, create weekly reports and create the EFTFile |
+| ValidationControl | The control class that validates provider numbers member numbers and membership status using the DataCenter |
+| BillingControl | The control class that looks up service information builds a ServiceRecord and sends it to the DataCenter |
+| Directory Management | The functions that allow the ChocAn operator to add update or delete service codes from the Directory |
+| Acme Accounting Services | The external organization that updates member payment status every night and tracks suspended and reinstated members |
+
+
 ## Sequence Diagram  
 
 ![Sequence Diagram](assets/sequence-diagram.png)
+
    
 ## usdiagrams  
 

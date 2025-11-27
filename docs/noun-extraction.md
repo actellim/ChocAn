@@ -1,38 +1,129 @@
-## Noun Extraction
+# Noun Extraction
 
-Contains nouns extracted from use cases.
+## Use Case List
+
+*Contains nouns extracted from use cases.*
 
 | Use Case | Nouns |
 |---|---|
-| Verify Member Number (Provider) | Verify, Member Number, membership, valid. |
-| Verify Provider Number (Provider) | Verify, Provider Number, registered, ChocAn system. |
-| Request Provider Directory | Request, Provider Directory, provider, update, services, service numbers, service fees. |
-| Lookup Service Code | Lookup, Service Code, ChocAn Data Center, service codes, service code description. |
+| Verify Member Number (Provider) | Providers, Person, ChocAn, membership. |
+| Verify Provider Number (Provider) | Providers, ChocAn system, accounting. |
+| Request Provider Directory | Providers, services, service number, fees. |
+| Lookup Service Code | Terminal, ChocAn data center, list, service codes, descriptions. |
 | Lookup Fee | Service Code, service fee. |
-| Bill ChocAn | Bill, ChocAn, run, Provider Terminal, ChocAn Database, service, service code, service fee, provider number. |
-| Calculate Weekly Fee | Calculate, Weekly Fee, service codes, Provider Terminal, service fees. |
-| Check Member Number (Server) | Check, Member Number, query, ChocAn database, valid, invalid. |
-| Check Provider Number (Server) | Check, Provider Number, query, ChocAn database, valid, invalid. |
-| Check Service Code | Check, Service Code, server, service code, service code description, return, terminal. |
-| Check Fee | Check, Fee, service code, return. |
-| Store Weekly Fees | Store, weekly fee, list of services, list of service fees, fee total, provider. |
-| Weekly Report Generation | Weekly Report, Generation, provider, fees, DB, total. |
-| Weekly Accounting | Accounting, weekly fees, weekly report generation, send, Acme Accounting Services. |
-| Print Financial Report | Print, Financial Report, weekly fees, database. |
-| Add Provider | Add, Provider, ChocAn Operator, ChocAn database. |
-| Delete Provider | Delete, Provider, ChocAn Operator, ChocAn database. |
-| Update Provider | Update, Provider, ChocAn Operator, ChocAn database. |
-| Add Member | Add, Member, ChocAn Operator, ChocAn database. |
-| Delete Member | Delete, Member, ChocAn Operator, ChocAn database. |
-| Update Member | Update, Member, ChocAn Operator, ChocAn database. |
-| Add Service Code | Add, Service Code, ChocAn Operator, ChocAn database. |
-| Update Service Code | Update, Service Code, ChocAn Operator, ChocAn database. |
-| Delete Service Code | Delete, Service Code, ChocAn Operator, ChocAn database. |
-| Get Weekly Fees | Get, Weekly Fees, fees, DB, current week, previous week. |
-| Retrieve Services | Retrieve, Services, provider, rendered, past week. |
-| Save Service | Save, Service, provider, store, services, render, terminal, retrieved, uploaded, ChocAn Data Center. |
+| Bill ChocAn | Provider's Terminals, bill, ChocAn database, services, codes, fees, provider number. |
+| Calculate Weekly Fee | List, Service Codes, Terminal, Week, Fees. |
+| Check Member Number (Server) | Member Number, Database. |
+| Check Provider Number (Server) | Provider Number, ChocAn Database. |
+| Check Service Code | Server, Service Code, Descriptions, Terminal. |
+| Check Fee | List, Service Code, Fees. |
+| Store Weekly Fees | List, Services, Fees, Fee Total, Provider, Week. |
+| Weekly Report Generation | Provider, Fees, Week, Database. |
+| Weekly Accounting | Fees, Report Generation, Acme Accounting Services. |
+| Print Financial Report | Fees, Database, Week. |
+| Add Provider | ChocAn Operator, provider, ChocAn database. |
+| Delete Provider | ChocAn Operator, Provider, ChocAn database. |
+| Update Provider | ChocAn Operator, Provider, Details, ChocAn database. |
+| Add Member | ChocAn Operator, Member, ChocAn database. |
+| Delete Member | ChocAn Operator, Member, ChocAn database. |
+| Update Member | ChocAn Operator, Details, Member, ChocAn database. |
+| Add Service Code | ChocAn Operator, Service Code, Service Directory. |
+| Update Service Code | ChocAn Operator, Service Code, Service Directory. |
+| Delete Service Code | ChocAn Operator, Service Code, Service Directory. |
+| Get Weekly Fees | Fees, Database, Week. |
+| Retrieve Services | Services, Provider, Week. |
+| Save Service | Provider, Services, Terminal, ChocAn Data Center. |
 :Table containing nouns extracted from use cases.
 
-### Noun List
+## Noun List
 
-- Verify
+*A list of nouns extracted from the use cases*.
+
+- [x] Providers
+- [x] Person
+- [x] ChocAn
+- [x] Membership
+- [x] ChocAn System
+- [x] Accounting
+- [x] Services
+- [x] Service Number
+- [x] Fees
+- [x] Terminal
+- [X] ChocAn Data Cenber
+- [ ] List
+- [x] Service Codes
+- [ ] Descriptions
+- [x] Service Fee
+- [x] Provider's Terminals
+- [x] Bill
+- [x] ChocAn Database
+- [x] Codes
+- [x] Provider Number
+- [ ] Week
+- [x] Member Number
+- [x] Database
+- [x] Server
+- [ ] Descriptions
+- [x] Fee Total
+- [x] Report Generation
+- [x] Acme Accounting Services
+- [x] ChocAn Operator
+- [ ] Details
+- [x] Member
+- [x] Service Directory
+
+## Noun Grouping
+
+*A section grouping the nouns extracted from the use cases.*
+
+### Member
+
+- Person/Member
+- Member Number
+- Membership
+
+### Provider 
+
+- Provider
+- Provider Number
+- Terminal/Provider's Terminal
+
+### Provider Services
+
+- Services
+- Codes/Service Codes
+- Service Directory
+- Service Number
+- Service Fees
+
+### Service Fees
+
+- Fees/Service Fees
+- Fee Total
+
+### Billing
+
+- Accounting
+- Report Generation
+- Bill
+- Acme Accounting Services
+
+### ChocAn Database
+
+- ChocAn/Server/Database/ChocAn Database/ChocAn System/ChocAn Data Center
+
+### ChocAn Employees
+
+- ChocAn Manager
+- ChocAn Operator
+
+## Candidate Classes
+
+- Member
+- Provider
+- Provider Services/Services
+- Service Fees
+- Billing
+- ChocAn Database
+- ChocAn Employees
+

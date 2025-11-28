@@ -157,17 +157,29 @@
 ### Member
 
 - Attributes:
+    public:
     - memberID: int
+    private
+    - memberName: string
+    - memberAddress: string
+    - memberPhone: string
+    - memberEMail: string
 - Methods:
-    - checkMemberID()
+    - checkMemberID(memberID)
 
 ### Provider
 
 - Attributes:
+    public
     - providerID: int
+    private
+    - providerName: string
+    - providerAddress: string
+    - providerPhone: string
+    - providerEMail: string
 - Methods:
-    - checkProviderID()
-    - getProviderID()
+    - checkProviderID(providerID)   // Verfies a provider is registered in the ChocAnDB.
+    - getProviderID()               // Returns the current provider's id.
 
 ### ServiceInstance
 
@@ -201,7 +213,7 @@
     - currentTotal: float(2)
 - Methods:
     - sum(date1, date2) // Gets all service instances in a range and totals
-                        // the fee
+                        // the fee.
 
 ### Billing
 

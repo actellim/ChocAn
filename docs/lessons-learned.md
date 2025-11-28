@@ -11,5 +11,5 @@
 
 ## Analysis/Design Workflow(s)
 
-- Revision involves re-reading the original request and making assumptions about structure, meaning.
+- Testing involves re-reading the original request and ensuring that assumptions align with the original requirements.
 

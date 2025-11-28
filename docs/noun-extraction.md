@@ -154,7 +154,26 @@
 
 ## Candidate Class Expansion
 
-### Member
+---
+
+### Provider Terminal
+
+#### Terminal
+
+- Attributes:
+    - Provider
+    - reportRan: bool
+- Methods:
+    - Provider init(providerID)
+    - verifyProviderID(providerID)
+    - verifyMemberID(memberID)
+    - recordTransaction(serviceID, memberID, time)
+    - updateServiceList()
+    - emailServiceList()
+    - emailReciept()
+    - checkProviderTimer()
+
+#### Member
 
 - Attributes:
     public:
@@ -164,10 +183,8 @@
     - memberAddress: string
     - memberPhone: string
     - memberEMail: string
-- Methods:
-    - checkMemberID(memberID)
 
-### Provider
+#### Provider
 
 - Attributes:
     public
@@ -177,29 +194,26 @@
     - providerAddress: string
     - providerPhone: string
     - providerEMail: string
-- Methods:
-    - checkProviderID(providerID)   // Verfies a provider is registered in the ChocAnDB.
-    - getProviderID()               // Returns the current provider's id.
 
-### ServiceInstance
+#### ServiceInstance
 
 - Attributes:
     - rendered: Service
-    - customer: Int
+    - customer: Member
+    - provider: Provider
     - time: arr(Date, Time)
 - Methods:
     - save()            // Saves an instance of a service locally
 
-### ServiceList
+#### ServiceList
 
 - Attributes:
     - List: dict{id: Service}
 - Methods:
     - refresh()         // Re-pulls from the database.
-    - createService()   // creates an instance of a service. 
     - email(providerID) // E-mails the current service list to the provider.
 
-### Service
+#### Service
 
 - Attributes:
     - ID: int
@@ -207,32 +221,74 @@
     - Name: string
     - Desc: string
 
-### Fees
+#### ProviderReport
 
 - Attributes:
-    - currentTotal: float(2)
+    - weeklyServices: arr[serviceInstance]
 - Methods:
     - sum(date1, date2) // Gets all service instances in a range and totals
                         // the fee.
 
-### Billing
+---
+
+### ChocAn Mainframe
+
+#### EmployeeTerminal
 
 - Attributes:
-    - weeklyServices: arr(ServiceInstance)
-    - provider: providerID
-    - feeTotal: float(2)
+    - employee: ChocAnEmployee
+    - dbInstance: ChocAnDB
+- Methods:
+    - ChocAnEmployee, ChocAnDB init(EmployeeID)
+    - registerMember()
+    - editMemberInfo()
+    - viewMemberInfo()
+    - suspendMember()
+    - hireEmployee()
+    - updateEmployeeInfo()
+    - viewEmployeeInfo()
+    - fireEmployee()
+    - registerProvider()
+    - editProviderInfo()
+    - viewProviderInfo()
+    - suspendProvider()
+    - registerService()
+    - editServiceInfo()
+    - viewServiceInfo()
+    - suspendService()
+    - initiateManagerReport()
+
+#### MainScheduler
+
+- Attributes:
+    - timerRan: bool
+- Methods
+    - checkAcmeTimer()
+
+#### ReportGenerator
+
+- Attributes:
+    - services: arr[ServiceInstance]
+    - date: date
+- Methods
+    - generateReport(ChocAnEmployee, date1, date2, providerID(optional))        // Called by ChocAn managers over a date range. Can specify a provider.
+    - generateWeeklyReport()                                                    // Automatically called weekly for the billing class.
+
+#### Billing
+
+- Attributes:
+    - payouts: dict{providerID: FeeTotal}
     - period: date
 - Methods:
-    - sum(period)       // Gets all service instances for the preceeding week and totals the fees
+    - weeklyBill(date)       // Gets the total fee for each provider for the previous week from the ReportGenerator and sends it to ACMEAccounting.
 
-### ChocAnDB
+#### ChocAnDB
 
-- Attributes:
-    - member: arr[memberID, memberName, memberAddress, memberPhone, memberEMail]
-    - provider: arr[providerID, providerName, providerAddress, providerPhone, providerEMail]
-    - Service: arr[serviceID, serviceName, serviceDesc, ServiceFee]
-    - employee: arr[employeeID, employeeName, employeeRole]
 - Methods:
+    - addEmployee()
+    - removeEmployee(employeeID)
+    - updateEmployee(employeeID)
+    - viewEmployee(employeeID)
     - addMember()
     - removeMember(memberID)
     - updateMember(memberID)
@@ -246,16 +302,13 @@
     - updateService(serviceID)
     - viewService(serviceID)
     - getServiceList()
-    - getWeeklyFees(date)
-    - getFees(date1, date2)
+    - getWeeklyServices(date)
+    - getServices(date1, date2)
 
-### ChocAnEmployees
+#### ChocAnEmployee
 
 - Attributes:
     - ID: int
     - name: string
     - role: string
-- Methods:
-    - generateReport(ID, name, role, date1, date2)      // Generates a service report for a date range.
-    - generateReport(ID, name, role, date1)             // Generates a service report for any given week.
 

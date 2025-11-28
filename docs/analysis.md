@@ -92,6 +92,7 @@ This part describes what the system does for each actor. Each use case represent
 | Update Service Code | Allows the ChocAn operator to update a service code |
 | Delete Service Code | Allows the ChocAn operator to delete a service code |
 | Get Weekly Fees | Retrieves total fees for the current or previous week |
+:Use cases and brief description.
 
 
 ## Noun Extraction  

@@ -2,6 +2,31 @@
 
 ## Use Case List
 
+| Use Case | Brief Description |
+|----------|------------------|
+| Verify Member Number | Allows a provider to check if a member number is valid or suspended |
+| Verify Provider Number | Allows a provider to confirm that their provider number is registered in the ChocAn system |
+| Request Provider Directory | Allows the provider to view the list of services service codes and fees |
+| Lookup Service Code | Retrieves the service name for a given service code |
+| Lookup Fee | Retrieves the fee for a given service code |
+| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the Data Center |
+| Retrieve Services | Gets all services a provider completed within the week |
+| Weekly Report Generation | Produces weekly reports for members providers and the manager |
+| Weekly Accounting | Sends weekly fee totals and provider payments amounts to Acme Accounting Services |
+| Print Financial Report | Prints the weekly financial summary |
+| Add Provider | Allows the ChocAn operator to add a provider |
+| Delete Provider | Allows the ChocAn operator to remove a provider |
+| Update Provider | Allows the ChocAn operator to update provider information |
+| Add Member | Allows the ChocAn operator to add a member |
+| Delete Member | Allows the ChocAn operator to remove a member |
+| Update Member | Allows the ChocAn operator to update member information |
+| Add Service Code | Allows the ChocAn operator to add a new service code |
+| Update Service Code | Allows the ChocAn operator to update a service code |
+| Delete Service Code | Allows the ChocAn operator to delete a service code |
+| Get Weekly Fees | Retrieves total fees for the current or previous week |
+
+## Use Case Noun List
+
 *Contains nouns extracted from use cases.*
 
 | Use Case | Nouns |
@@ -191,6 +216,10 @@
 ### ChocAnDB
 
 - Attributes:
+    - member: arr[memberID, memberName, memberAddress, memberPhone, memberEMail]
+    - provider: arr[providerID, providerName, providerAddress, providerPhone, providerEMail]
+    - Service: arr[serviceID, serviceName, serviceDesc, ServiceFee]
+    - employee: arr[employeeID, employeeName, employeeRole]
 - Methods:
     - addMember()
     - removeMember(memberID)
@@ -215,4 +244,6 @@
     - name: string
     - role: string
 - Methods:
+    - generateReport(ID, name, role, date1, date2)      // Generates a service report for a date range.
+    - generateReport(ID, name, role, date1)             // Generates a service report for any given week.
 

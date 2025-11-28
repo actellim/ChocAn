@@ -9,3 +9,7 @@
 - The *Defining Requirements* step should come **before** the *UML Use-Case Diagram* step.
 	- Having the requirements listed **first** would make it easier to derive the relation graph.
 
+## Analysis/Design Workflow(s)
+
+- Revision involves re-reading the original request and making assumptions about structure, meaning.
+

@@ -1,6 +1,6 @@
-# Noun Extraction
+## Noun Extraction
 
-## Use Case List
+### Use Case List
 
 | Use Case | Brief Description |
 |----------|------------------|
@@ -25,7 +25,7 @@
 | Delete Service Code | Allows the ChocAn operator to delete a service code |
 | Get Weekly Fees | Retrieves total fees for the current or previous week |
 
-## Use Case Noun List
+### Use Case Noun List
 
 *Contains nouns extracted from use cases.*
 
@@ -60,7 +60,7 @@
 | Save Service | Provider, Services, Terminal, ChocAn Data Center. |
 :Table containing nouns extracted from use cases.
 
-## Noun List
+### Noun List
 
 *A list of nouns extracted from the use cases*.
 
@@ -97,23 +97,23 @@
 - [x] Member
 - [x] Service Directory
 
-## Noun Grouping
+### Noun Grouping
 
 *A section grouping the nouns extracted from the use cases.*
 
-### Member
+#### Member
 
 - Person/Member
 - Member Number
 - Membership
 
-### Provider 
+#### Provider 
 
 - Provider
 - Provider Number
 - Terminal/Provider's Terminal
 
-### Provider Services
+#### Provider Services
 
 - Services
 - Codes/Service Codes
@@ -121,28 +121,28 @@
 - Service Number
 - Service Fees
 
-### Service Fees
+#### Service Fees
 
 - Fees/Service Fees
 - Fee Total
 
-### Billing
+#### Billing
 
 - Accounting
 - Report Generation
 - Bill
 - Acme Accounting Services
 
-### ChocAn Database
+#### ChocAn Database
 
 - ChocAn/Server/Database/ChocAn Database/ChocAn System/ChocAn Data Center
 
-### ChocAn Employees
+#### ChocAn Employees
 
 - ChocAn Manager
 - ChocAn Operator
 
-## Candidate Class List
+### Candidate Class List
 
 - Member
 - Provider
@@ -152,13 +152,13 @@
 - ChocAn Database
 - ChocAn Employees
 
-## Candidate Class Expansion
+### Candidate Class Expansion
 
 ---
 
-### Provider Terminal
+#### Provider Terminal
 
-#### Terminal
+##### Terminal
 
 - Attributes:
     - Provider
@@ -173,7 +173,7 @@
     - emailReciept()
     - checkProviderTimer()
 
-#### Member
+##### Member
 
 - Attributes:
     public:
@@ -184,7 +184,7 @@
     - memberPhone: string
     - memberEMail: string
 
-#### Provider
+##### Provider
 
 - Attributes:
     public
@@ -195,7 +195,7 @@
     - providerPhone: string
     - providerEMail: string
 
-#### ServiceInstance
+##### ServiceInstance
 
 - Attributes:
     - rendered: Service
@@ -205,14 +205,14 @@
 - Methods:
     - save()            // Saves an instance of a service locally
 
-#### ServiceList
+##### ServiceList
 
 - Attributes:
     - List: dict{id: Service}
 - Methods:
     - refresh()         // Re-pulls from the database.
 
-#### Service
+##### Service
 
 - Attributes:
     - ID: int
@@ -220,7 +220,7 @@
     - Name: string
     - Desc: string
 
-#### ProviderReport
+##### ProviderReport
 
 - Attributes:
     - weeklyServices: arr[serviceInstance]
@@ -230,9 +230,9 @@
 
 ---
 
-### ChocAn Mainframe
+#### ChocAn Mainframe
 
-#### EmployeeTerminal
+##### EmployeeTerminal
 
 - Attributes:
     - employee: ChocAnEmployee
@@ -257,14 +257,14 @@
     - suspendService()
     - initiateManagerReport()
 
-#### MainScheduler
+##### MainScheduler
 
 - Attributes:
     - timerRan: bool
 - Methods
     - checkAcmeTimer()
 
-#### ReportGenerator
+##### ReportGenerator
 
 - Attributes:
     - services: arr[ServiceInstance]
@@ -273,7 +273,7 @@
     - generateReport(ChocAnEmployee, date1, date2, providerID(optional))        // Called by ChocAn managers over a date range. Can specify a provider.
     - generateWeeklyReport()                                                    // Automatically called weekly for the billing class.
 
-#### Billing
+##### Billing
 
 - Attributes:
     - payouts: dict{providerID: FeeTotal}
@@ -281,7 +281,7 @@
 - Methods:
     - weeklyBill(date)       // Gets the total fee for each provider for the previous week from the ReportGenerator and sends it to ACMEAccounting.
 
-#### ChocAnDB
+##### ChocAnDB
 
 - Methods:
     - addEmployee()
@@ -304,14 +304,10 @@
     - getWeeklyServices(date)
     - getServices(date1, date2)
 
-#### ChocAnEmployee
+##### ChocAnEmployee
 
 - Attributes:
     - ID: int
     - name: string
     - role: string
-
-## Analysis Diagram
-
-![Analysis Diagram](assets/analysis-diagram.png)
 

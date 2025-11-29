@@ -399,3 +399,19 @@ This section connects each system function to the class that handles it.
 
 <img width="1407" height="711" alt="Screenshot 2025-11-29 at 2 27 10 PM" src="https://github.com/user-attachments/assets/43432c4d-4a8e-4663-bd1f-ffea419ba576" />
 
+
+## Communication Diagram  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

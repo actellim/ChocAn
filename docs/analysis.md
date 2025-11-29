@@ -115,6 +115,10 @@ This section lists important nouns found in the project description. These nouns
 | Provider Terminal | ProviderTerminal |
 : Table containing nouns extracted from the Use Cases.
 
+## Class Diagram
+
+![Class Diagram](assets/class-diagram.png)
+
 
 ## Entity, Boundary and Control Classes 
 
@@ -397,7 +401,7 @@ This section connects each system function to the class that handles it.
 
 ## Sequence Diagram  
 
-<img width="1407" height="711" alt="Screenshot 2025-11-29 at 2 27 10 PM" src="https://github.com/user-attachments/assets/43432c4d-4a8e-4663-bd1f-ffea419ba576" />
+![Sequence Diagram](assets/sequence-diagram.png)
 
 
 ## Communication Diagram  

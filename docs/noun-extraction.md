@@ -312,3 +312,7 @@
     - name: string
     - role: string
 
+## Analysis Diagram
+
+![Analysis Diagram](assets/analysis-diagram.png)
+

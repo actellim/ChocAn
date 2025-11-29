@@ -697,14 +697,12 @@ This section connects each system function to the class that handles it.
 
 ## Sequence Diagram  
 
-![Sequence Diagram](assets/sequence-diagram.png)
+<img width="1158" height="857" alt="Screenshot 2025-11-29 at 5 39 50 PM" src="https://github.com/user-attachments/assets/dc69d114-5fc6-477a-8b76-96d19e6d5631" />
 
 
 ## Communication Diagram  
 
-
-
-
+<img width="1248" height="372" alt="Screenshot 2025-11-29 at 5 33 23 PM" src="https://github.com/user-attachments/assets/4d555585-b367-4cc5-9fc5-6bf605cfbd48" />
 
 
 

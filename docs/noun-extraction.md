@@ -211,7 +211,6 @@
     - List: dict{id: Service}
 - Methods:
     - refresh()         // Re-pulls from the database.
-    - email(providerID) // E-mails the current service list to the provider.
 
 #### Service
 
@@ -226,7 +225,7 @@
 - Attributes:
     - weeklyServices: arr[serviceInstance]
 - Methods:
-    - sum(date1, date2) // Gets all service instances in a range and totals
+    - sum(date, date) // Gets all service instances in a range and totals
                         // the fee.
 
 ---

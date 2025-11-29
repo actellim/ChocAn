@@ -119,6 +119,7 @@ This section lists important nouns found in the project description. These nouns
 
 ![Class Diagram](assets/class-diagram.png)
 
+![Detailed Class Diagram](assets/detailed-class-diagram.png)
 
 ## Entity, Boundary and Control Classes 
 

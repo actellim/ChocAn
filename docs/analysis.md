@@ -754,6 +754,9 @@ END Algorithm
 
 
 ## Reflection 
+(Kenneth) Software Life-Cycle Models:
+Preparing this presentation made it easier to understand how different software development models guide the building of a system. Many people assume all projects follow the same process, but looking at Agile, XP, Scrum, Synchronize and Stabilize, and the Spiral Model showed that each method has its own purpose. Agile focuses on flexibility, Scrum helps teams stay organized, XP encourages simple design and good communication, and the Spiral Model aims to reduce risks early. 
 
+During the ChocAn term project, the ideas from these models became more noticeable. The system was not created all at once. The actors, use cases, diagrams and class responsibilities were updated step by step as the work became clearer. This slow and steady progress is similar to Agile and Scrum, where a system grows through small improvements. The many corrections made to fix confusing parts of the sequence and communication diagrams also match the ideas in XP which support simple design and regular improvement whenever something is unclear. 
 
-
+Even though the ChocAn project is small, comparing it to real development models showed how important it is to use small steps, clear communication and early checks. Making this presentation helped build a better understanding of these models and showed how their ideas naturally appear during system design. This made the project feel more organized and gave a clearer view of how real software development moves forward.

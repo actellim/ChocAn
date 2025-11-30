@@ -60,7 +60,7 @@ This section lists the main people and systems that take part in ChocAn operatio
 | Member | A person who pays monthly fees and receives health services. Each member has a nine digit ID card and a status that may be valid suspended or invalid |
 | Provider | A health worker such as a dietitian doctor or exercise expert who uses the terminal to record services and submit billing information |
 | ProviderTerminal | The interface used by providers to validate IDs enter service information and communicate with the Data Center |
-| ChocAn Data Center | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares weekly accounting files |
+| Data Center | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares weekly accounting files |
 | ChocAn Operator | A system operator who adds updates or deletes member provider and service information in the Data Center |
 | Manager Accounts Payable | Reviews the weekly reports created by the system and receives a summary of all consultations and provider totals |
 | Acme Accounting Services | Handles membership fee payments and updates member status every night |
@@ -675,7 +675,7 @@ This section connects each system function to the class that handles it.
 - Glossary of system terms
 
    
-## 14. Glossary
+## Glossary
 
 | Term | Definition |
 |------|------------|
@@ -705,11 +705,55 @@ This section connects each system function to the class that handles it.
 <img width="1248" height="372" alt="Screenshot 2025-11-29 at 5 33 23 PM" src="https://github.com/user-attachments/assets/4d555585-b367-4cc5-9fc5-6bf605cfbd48" />
 
 
+## Pseudo Code (Record Service Provided) Algorithm
+
+1.  Ask ValidationControl to validate the provider number
+
+2.  If provider number is invalid:
+        Display "Invalid Number"
+        STOP
+
+3.  Ask ValidationControl to validate the member number and get the member status
+
+4.  If member status is "Suspended":
+        Display "Member Suspended"
+        STOP
+
+5.  If member status is "Invalid":
+        Display "Invalid Number"
+        STOP
+
+6.  Ask BillingControl to look up the service name and fee from the Directory
+    using the service code
+
+7.  If the service code does not exist:
+        Display "Invalid Service Code"
+        STOP
+
+8.  Display the service name and fee to the provider and request confirmation
+
+9.  If the provider does not confirm:
+        Display "Cancelled"
+        STOP
+
+10. Ask BillingControl to store a new service record in the DataCenter
+    The record must include:
+        - provider number
+        - member number
+        - date of service
+        - service code
+        - fee
+        - comment
+
+11. If the DataCenter confirms that the record was stored successfully:
+        Display "Service Recorded Successfully"
+    Else:
+        Display "Error while storing service"
+
+END Algorithm
 
 
-
-
-
+## Reflection 
 
 
 

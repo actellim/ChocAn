@@ -6,13 +6,13 @@ subtitle: For the ChocAn Project
 ## Outline
 
 1. Understand How the System Works  
-    - Learn how ChocAn works with members providers and the Data Center  
+    - Learn how ChocAn works with members providers and the DataCenter  
     - Identify what the system does such as checking IDs recording services creating reports and sending payments  
     - Break the work into smaller steps to see how data moves  
     - Make sure everything connects correctly between users and the system
 
 2. Identify Actors and Use Cases  
-    - List all people and systems that interact with ChocAn such as members providers managers the Data Center Acme Accounting Services and the ProviderTerminal  
+    - List all people and systems that interact with ChocAn such as members providers managers the DataCenter Acme Accounting Services and the ProviderTerminal  
     - Explain what each actor does  
     - Identify all main use cases and use Record Service Provided as the main example for the analysis  
     - Make simple diagrams to show how actors and system functions connect
@@ -59,9 +59,9 @@ This section lists the main people and systems that take part in ChocAn operatio
 |-------|-------------|
 | Member | A person who pays monthly fees and receives health services. Each member has a nine digit ID card and a status that may be valid suspended or invalid |
 | Provider | A health worker such as a dietitian doctor or exercise expert who uses the terminal to record services and submit billing information |
-| ProviderTerminal | The interface used by providers to validate IDs enter service information and communicate with the Data Center |
-| Data Center | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares weekly accounting files |
-| ChocAn Operator | A system operator who adds updates or deletes member provider and service information in the Data Center |
+| ProviderTerminal | The interface used by providers to validate IDs enter service information and communicate with the DataCenter |
+| DataCenter | The main computer that manages all data for members and providers validates IDs records services creates reports and prepares weekly accounting files |
+| ChocAn Operator | A system operator who adds updates or deletes member provider and service information in the DataCenter |
 | Manager Accounts Payable | Reviews the weekly reports created by the system and receives a summary of all consultations and provider totals |
 | Acme Accounting Services | Handles membership fee payments and updates member status every night |
 
@@ -77,7 +77,7 @@ This part describes what the system does for each actor. Each use case represent
 | Request Provider Directory | Allows the provider to view the list of services service codes and fees |
 | Lookup Service Code | Retrieves the service name for a given service code |
 | Lookup Fee | Retrieves the fee for a given service code |
-| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the Data Center |
+| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the DataCenter |
 | Retrieve Services | Gets all services a provider completed within the week |
 | Weekly Report Generation | Produces weekly reports for members providers and the manager |
 | Weekly Accounting | Sends weekly fee totals and provider payments amounts to Acme Accounting Services |
@@ -106,7 +106,7 @@ This part describes what the system does for each actor. Each use case represent
 | Request Provider Directory | Allows the provider to view the list of services service codes and fees |
 | Lookup Service Code | Retrieves the service name for a given service code |
 | Lookup Fee | Retrieves the fee for a given service code |
-| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the Data Center |
+| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the DataCenter |
 | Retrieve Services | Gets all services a provider completed within the week |
 | Weekly Report Generation | Produces weekly reports for members providers and the manager |
 | Weekly Accounting | Sends weekly fee totals and provider payments amounts to Acme Accounting Services |
@@ -132,7 +132,7 @@ This part describes what the system does for each actor. Each use case represent
 | Verify Member Number (Provider) | Providers, Person, ChocAn, membership. |
 | Verify Provider Number (Provider) | Providers, ChocAn system, accounting. |
 | Request Provider Directory | Providers, services, service number, fees. |
-| Lookup Service Code | Terminal, ChocAn data center, list, service codes, descriptions. |
+| Lookup Service Code | Terminal, ChocAn DataCenter, list, service codes, descriptions. |
 | Lookup Fee | Service Code, service fee. |
 | Bill ChocAn | Provider's Terminals, bill, ChocAn database, services, codes, fees, provider number. |
 | Calculate Weekly Fee | List, Service Codes, Terminal, Week, Fees. |
@@ -155,7 +155,7 @@ This part describes what the system does for each actor. Each use case represent
 | Delete Service Code | ChocAn Operator, Service Code, Service Directory. |
 | Get Weekly Fees | Fees, Database, Week. |
 | Retrieve Services | Services, Provider, Week. |
-| Save Service | Provider, Services, Terminal, ChocAn Data Center. |
+| Save Service | Provider, Services, Terminal, ChocAn DataCenter. |
 :Table containing nouns extracted from use cases.
 
 ### Noun List
@@ -172,7 +172,7 @@ This part describes what the system does for each actor. Each use case represent
 - [x] Service Number
 - [x] Fees
 - [x] Terminal
-- [X] ChocAn Data Center
+- [X] ChocAn DataCenter
 - [ ] List
 - [x] Service Codes
 - [ ] Descriptions
@@ -232,7 +232,7 @@ This part describes what the system does for each actor. Each use case represent
 
 #### ChocAn Database
 
-- ChocAn/Server/Database/ChocAn Database/ChocAn System/ChocAn Data Center
+- ChocAn/Server/Database/ChocAn Database/ChocAn System/ChocAn DataCenter
 
 #### ChocAn Employees
 
@@ -253,7 +253,7 @@ This part describes what the system does for each actor. Each use case represent
 
 ---
 
-#### Provider Terminal
+#### ProviderTerminal
 
 ##### Terminal
 
@@ -443,7 +443,7 @@ Lists the system main classes what each one is responsible for and which other c
 | 2. Display validation messages such as "Validated", "Invalid Number" and "Member Suspended" |
 | 3. Request service name and fee from Directory through BillingControl |
 | 4. Send completed service information to BillingControl |
-| 5. Display final confirmation after the service record is stored |
+| 5. Display final confirmation after the ServiceRecord is stored |
 | COLLABORATION |
 | 1. ValidationControl |
 | 2. BillingControl |
@@ -525,7 +525,7 @@ This section shows one use case in full detail. It explains step by step how the
 ## Weekly Processing  
 
 1. At midnight on Friday the system starts automatic weekly processing  
-2. The Data Center reads all service records from that week  
+2. The DataCenter reads all ServiceRecords from that week  
 3. A Member Report is created for each member showing all services they received  
 4. A Provider Report is created for each provider with the list of services performed and the total fees  
 5. A Summary Report is created showing the total number of providers total consultations and the total amount paid  
@@ -589,7 +589,7 @@ This message flow shows how information moves through the system when a provider
 | ValidationControl | DataCenter | Validate provider and member numbers |
 | ProviderTerminal | BillingControl | Send service code and service details |
 | BillingControl | Directory | Request service name and fee |
-| BillingControl | DataCenter | Submit completed service record |
+| BillingControl | DataCenter | Submit completed ServiceRecord |
 | DataCenter | ProviderTerminal | Return validation and confirmation messages |
 | ProviderTerminal | Provider | Display results and confirmation |
 
@@ -683,7 +683,7 @@ This section connects each system function to the class that handles it.
 | ProviderTerminal | The interface used by providers to validate IDs, enter service information and communicate with the Data Center |
 | DataCenter | The main computer system that stores member provider and service data processes validations stores ServiceRecord entries and generates weekly reports |
 | Directory | The list of all valid service names service codes and service fees used when providers enter completed services |
-| Service Record | A stored record representing one completed service including date of service, provider number, member number, service code, fee, comments and timestamp |
+| ServiceRecord | A stored record representing one completed service including date of service, provider number, member number, service code, fee, comments and timestamp |
 | Report | A weekly output file created for each member, provider and a summary report created for the manager showing totals for the week |
 | EFTFile | A weekly “Electronic Funds Transfer” payment file containing each provider’s name, provider's number and total amount owed for that week |
 | Weekly Batch | The automated processing that runs every Friday at midnight to read all ServiceRecord entries, create weekly reports and create the EFTFile |
@@ -735,7 +735,7 @@ This section connects each system function to the class that handles it.
         Display "Cancelled"
         STOP
 
-10. Ask BillingControl to store a new service record in the DataCenter
+10. Ask BillingControl to store a new ServiceRecord in the DataCenter
     The record must include:
         - provider number
         - member number

@@ -172,7 +172,7 @@ This part describes what the system does for each actor. Each use case represent
 - [x] Service Number
 - [x] Fees
 - [x] Terminal
-- [X] ChocAn Data Cenber
+- [X] ChocAn Data Center
 - [ ] List
 - [x] Service Codes
 - [ ] Descriptions
@@ -186,7 +186,6 @@ This part describes what the system does for each actor. Each use case represent
 - [x] Member Number
 - [x] Database
 - [x] Server
-- [ ] Descriptions
 - [x] Fee Total
 - [x] Report Generation
 - [x] Acme Accounting Services
@@ -268,7 +267,7 @@ This part describes what the system does for each actor. Each use case represent
     - recordTransaction(serviceID, memberID, time)
     - updateServiceList()
     - emailServiceList()
-    - emailReciept()
+    - emailReceipt()
     - checkProviderTimer()
 
 ##### Member

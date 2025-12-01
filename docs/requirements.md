@@ -70,7 +70,6 @@ The group has communicated primarliy through e-mail. Discord and in-person commu
 | Suspended (member state) | Suspended indicates that the fees haven't been paid in at least one month. Tracked by Acme Accounting Services. |
 | Terminal | The hardware responsible for running the software. |
 | Valid (member number) | A member number belonging to a ChocAn Member who is currently with their monthly fee. |
-
 : A glossary of terms to better understand the ChocAn business model.
 
 ## Interview

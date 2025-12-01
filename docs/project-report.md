@@ -13,7 +13,7 @@ Acknowledgement is given to Dr. Ayman Diyab for providing slides and required kn
 
 ### Workflow Steps
 
-The workflow was derived from *The Unified Process*[Schach2010].
+The workflow was derived from *The Unified Process*[@Schach2010].
 
 1. Develop an initial understanding of the target domain:
    * Research basic information about ChocoAn’s purpose, services, target market.
@@ -41,11 +41,35 @@ Inline code, meant to denote potential classes, methods, and attributes, is form
 
 #### Tool Use
 
-Gaphor was used for the creation of UML images. GitHub was utilized for collaboration and version tracking and management. Pandoc was used in the creation of the documentation thus far. Other tools used include Google Drive/Docs for collabaration, as well as Microsoft Office for formatting and docment generation.
+Gaphor[@GaphorDocs] was used for the creation of UML images. GitHub was utilized for collaboration and version tracking and management. Pandoc[@PandocManual] was used in the creation of the documentation thus far. Other tools used include Google Drive/Docs for collabaration, as well as Microsoft Office for formatting and docment generation.
 
 #### Communication
 
 The group has communicated primarliy through e-mail. Discord and in-person communication have also been utilized. Google drive was utilized initally for organizing documentation before a proper Git repository was created and access was distributed to each member.
+
+### Glossary
+
+| Term | Meaning |
+| :---- | :---- |
+| Accounts Payable | Amounts of money that ChocAn must pay to providers for services rendered to ChocAn members. |
+| Acme Accounting Services | An independent, external organization (not affiliated with ChocAn) who conducts financial operations like suspending/reinstating members of ChocAn and handling payment records from these members. |
+| Card Reader | A device that reads member card and send the data on the card to the system/terminal |
+| ChocAn Data Center | The remote database responsible for tracking transactions, tracking and reporting member status. Central system where member, provider, and service records are stored and reports are processed. |
+| Chocoholics Anonymous (ChocAn) | An organization established to assist people with chocolate addition in all its glorious forms. |
+| Chocolate | Produced from roasted and ground cocoa beans, this energy-dense food exists in many forms and can be directly consumed or used to make other products/food. |
+| Invalid (member number) | A member number that is reported as not found in the ChocAn Data Center database. |
+| Electronic Funds Transfer | A method of electronically transferring funds between accounts (e... Chocoholics Anonymous banking account to provider’s banking account). |
+| Member Card | A magnetic stripe card with member data like name and nine-digit member number engraved in the front and the same data stored in a black magnetic stripe in the back. |
+| Member Status | The status of a member who registered with ChocAn. “Valid” means that the member has paid all their service fees, while “Suspended” indicates that the member still owes service fees. |
+| Member | An individual who **pays a monthly fee to ChocAn** for which they are entitled to unlimited consultations and treatments with health care professionals. Possess a Member Card. |
+| Monthly Fee | The amount paid every month to maintain membership with ChocAn. |
+| Providers | A health care professional responsible for providing treatment to validated ChocAn members. Mainly dietitians, internists, and exercise experts. Receive payment from ChocAn. |
+| Provider Directory | A catalog or list of all possible services, their codes, and fees; like a menu of treatments for members. |
+| Services Rendered | Services provided by ChocAn providers to members that match a six-digit code listed in the Provider Directory. |
+| Suspended (member state) | Suspended indicates that the fees haven't been paid in at least one month. Tracked by Acme Accounting Services. |
+| Terminal | The hardware responsible for running the software. |
+| Valid (member number) | A member number belonging to a ChocAn Member who is currently with their monthly fee. |
+: A glossary of terms to better understand the ChocAn business model.
 
 ### Interview
 
@@ -348,36 +372,7 @@ This section lists the main people and systems that take part in ChocAn operatio
 | ChocAn Operator | A system operator who adds updates or deletes member provider and service information in the DataCenter |
 | Manager Accounts Payable | Reviews the weekly reports created by the system and receives a summary of all consultations and provider totals |
 | Acme Accounting Services | Handles membership fee payments and updates member status every night |
-
-
-### Use Cases  
-
-This part describes what the system does for each actor. Each use case represents a main task such as validating IDs recording services creating reports and running the weekly batch. Record Service Provided is used as the main example for the analysis. The Save Service use case shown in the requirements diagram refers to the same provider service entry behaviour as Record Service Provided.
-
-| Use Case | Brief Description |
-|----------|------------------|
-| Verify Member Number | Allows a provider to check if a member number is valid or suspended |
-| Verify Provider Number | Allows a provider to confirm that their provider number is registered in the ChocAn system |
-| Request Provider Directory | Allows the provider to view the list of services service codes and fees |
-| Lookup Service Code | Retrieves the service name for a given service code |
-| Lookup Fee | Retrieves the fee for a given service code |
-| Record Service Provided | Allows a provider to enter a completed service including date service code and comments then store it in the DataCenter |
-| Retrieve Services | Gets all services a provider completed within the week |
-| Weekly Report Generation | Produces weekly reports for members providers and the manager |
-| Weekly Accounting | Sends weekly fee totals and provider payments amounts to Acme Accounting Services |
-| Print Financial Report | Prints the weekly financial summary |
-| Add Provider | Allows the ChocAn operator to add a provider |
-| Delete Provider | Allows the ChocAn operator to remove a provider |
-| Update Provider | Allows the ChocAn operator to update provider information |
-| Add Member | Allows the ChocAn operator to add a member |
-| Delete Member | Allows the ChocAn operator to remove a member |
-| Update Member | Allows the ChocAn operator to update member information |
-| Add Service Code | Allows the ChocAn operator to add a new service code |
-| Update Service Code | Allows the ChocAn operator to update a service code |
-| Delete Service Code | Allows the ChocAn operator to delete a service code |
-| Get Weekly Fees | Retrieves total fees for the current or previous week |
-:Use cases and brief description.
-
+: Table of Actors
 
 ### Noun Extraction
 
@@ -552,7 +547,7 @@ This part describes what the system does for each actor. Each use case represent
 | Control | ValidationControl | Handles provider and member number validation through the DataCenter |
 | Control | BillingControl | Handles service lookup confirmation building of ServiceRecord and submission |
 | Control | DataCenter | Stores ServiceRecord entries performs validation supports reporting and runs weekly accounting |
-
+: Table of Classes
 
 ### CRC Cards  
 
@@ -569,6 +564,7 @@ Lists the system main classes what each one is responsible for and which other c
 | COLLABORATION |
 | 1. ValidationControl |
 | 2. BillingControl |
+: ProviderTerminal CRC Card
 
 | CLASS ValidationControl (Control) |
 | :---- |
@@ -579,6 +575,7 @@ Lists the system main classes what each one is responsible for and which other c
 | COLLABORATION |
 | 1. DataCenter |
 | 2. ProviderTerminal |
+: ValidationControl CRC Card
 
 | CLASS BillingControl (Control) |
 | :---- |
@@ -593,6 +590,7 @@ Lists the system main classes what each one is responsible for and which other c
 | 2. Directory |
 | 3. DataCenter |
 | 4. ServiceRecord |
+: BillingControl CRC Card
 
 | CLASS DataCenter (Control) |
 | :---- |
@@ -609,6 +607,7 @@ Lists the system main classes what each one is responsible for and which other c
 | 5. Member |
 | 6. Provider |
 | 7.ServiceRecord |
+: DataCenter CRC Card
 
 | CLASS ServiceRecord (Entity) |
 | :---- |
@@ -618,6 +617,7 @@ Lists the system main classes what each one is responsible for and which other c
 | COLLABORATION |
 | 1. BillingControl |
 | 2. DataCenter |
+: ServiceRecord CRC Card
 
 ### Example Use Case Record Service Provided  
 
@@ -711,6 +711,7 @@ This message flow shows how information moves through the system when a provider
 | BillingControl | DataCenter | Submit completed ServiceRecord |
 | DataCenter | ProviderTerminal | Return validation and confirmation messages |
 | ProviderTerminal | Provider | Display results and confirmation |
+: Record Service Provided Interaction Order
    
 ### Test Workflow  
 
@@ -1007,24 +1008,9 @@ END Algorithm
 
 ![Detailed Class Diagram](assets/detailed-class-diagram.png)
 
-### Glossary
+## Implementation
 
-| Term | Definition |
-|------|------------|
-| Member | A ChocAn user who receives services. Identified by a nine digit member number. Status may be *Valid*, *Invalid*, or *Suspended* |
-| Provider | A health care professional who provides services to members and records those services through the ProviderTerminal |
-| ProviderTerminal | The interface used by providers to validate IDs, enter service information and communicate with the Data Center |
-| DataCenter | The main computer system that stores member provider and service data processes validations stores ServiceRecord entries and generates weekly reports |
-| Directory | The list of all valid service names service codes and service fees used when providers enter completed services |
-| ServiceRecord | A stored record representing one completed service including date of service, provider number, member number, service code, fee, comments and timestamp |
-| Report | A weekly output file created for each member, provider and a summary report created for the manager showing totals for the week |
-| EFTFile | A weekly “Electronic Funds Transfer” payment file containing each provider’s name, provider's number and total amount owed for that week |
-| Weekly Batch | The automated processing that runs every Friday at midnight to read all ServiceRecord entries, create weekly reports and create the EFTFile |
-| ValidationControl | The control class that validates provider numbers member numbers and membership status using the DataCenter |
-| BillingControl | The control class that looks up service information builds a ServiceRecord and sends it to the DataCenter |
-| Directory Management | The functions that allow the ChocAn operator to add update or delete service codes from the Directory |
-| Acme Accounting Services | The external organization that updates member payment status every night and tracks suspended and reinstated members |
-: Glossary of Terms
+Implementation was performed using agentic AI assistance. The agent was instructed to write the tests first, then implement the code to verify it’s assumptions. [GoogleAntigravity]
 
 ## Reflections
 
@@ -1052,7 +1038,6 @@ Defining objects, use cases and their interactions early on definitely helps eve
 However, nothing is without flaw and this applies to OOA also. The ability to actually identifying the right objects (through noun extractions) and not overabstracting or underabstracting those objects, while resisting the temptation to jump in the design thought and process too early on is not an easy task to perform, especially for developers with less real-life experience. 
 
 Through this project, students have been able to learn some of the most useful and important skills (that are usually neglected) such as how to ask a question correctly to get the concise and detailed answers. More importantly, students also develop a deeper appreciation for the analysis workflow in general and OOA specifically, that effective software lies within disciplined thinking and understanding, not fast and fancy coding. 
-
 
 ## Lessons Learned
 

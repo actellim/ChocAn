@@ -75,9 +75,13 @@ The group has communicated primarliy through e-mail. Discord and in-person commu
 
 The interview process was skipped as there was not practical way to interview the client (Appendix A). In lieu of an interview a rigorous examination of the appendix was conducted.
 
+\newpage
+
 ### UML Use Case Diagram
 
-![Use Case Diagram](assets/use-cases.png){ height=72% }
+![Use Case Diagram](assets/use-cases.png){ height=74% }
+
+\newpage
 
 ### **Defining Requirements** (Functional and Non-Functional)
 
@@ -528,9 +532,13 @@ This section lists the main people and systems that take part in ChocAn operatio
 - ChocAn Database
 - ChocAn Employees
 
+\newpage
+
 ### Class Diagram
 
-![Class Diagram](assets/class-diagram.png)
+![Class Diagram](assets/class-diagram.png){ height=74% }
+
+\newpage
 
 ### Entity, Boundary and Control Classes 
 
@@ -790,13 +798,19 @@ This section connects each system function to the class that handles it.
 - Test workflow and test checklist  
 - Glossary of system terms
 
+\newpage
+
 ### Sequence Diagram  
 
 ![Sequence Diagram](assets/sequence-diagram.png)
 
+\newpage
+
 ### Communication Diagram  
 
 ![Communication Diagram](assets/communication-diagram.png)
+
+\newpage
 
 ### Pseudo Code (Record Service Provided) Algorithm
 
@@ -1002,9 +1016,13 @@ END Algorithm
     - name: string
     - role: string
 
+\newpage
+
 ### Class Diagram
 
-![Detailed Class Diagram](assets/detailed-class-diagram.png)
+![Detailed Class Diagram](assets/detailed-class-diagram.png){ height=74% }
+
+\newpage
 
 ## Implementation
 

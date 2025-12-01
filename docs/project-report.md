@@ -41,7 +41,7 @@ Inline code, meant to denote potential classes, methods, and attributes, is form
 
 #### Tool Use
 
-Gaphor[@GaphorDocs] was used for the creation of UML images. GitHub was utilized for collaboration and version tracking and management. Pandoc[@PandocManual] was used in the creation of the documentation thus far. Other tools used include Google Drive/Docs for collabaration, as well as Microsoft Office for formatting and docment generation.
+Gaphor[@GaphorDocs] was used for the creation of UML images. GitHub was utilized for collaboration and version tracking and management. Pandoc[@PandocManual] was used in the creation of the documentation thus far. Other tools used include Google Drive/Docs for collabaration, as well as Microsoft Office for formatting and docment generation. Visual Paradigm[@VisualParadigm] was used for the creation of some UML images.
 
 #### Communication
 
@@ -794,11 +794,9 @@ This section connects each system function to the class that handles it.
 
 ![Sequence Diagram](assets/sequence-diagram.png)
 
-
 ### Communication Diagram  
 
 ![Communication Diagram](assets/communication-diagram.png)
-
 
 ### Pseudo Code (Record Service Provided) Algorithm
 

@@ -14,4 +14,5 @@
 - Testing involves re-reading the original request and ensuring that assumptions align with the original requirements.
 - Seems like class diagram creation should come before designing the attributes and methods. I didn't find that particularly useful, but if we're making them that'd probably be the ideal time, as it does make it easier to understand some of the dependencies. 
 - Trying to work casually in parallel resulted in a few design decisions, such as class names and exact data flows, being out of alignment.
-
+- Also somehow missed that testing artifacts had been developed before the actual implementation. Could have utilized them better if I had seen them during my review of the analysis document. 
+	- Probably should have parsed that into more artifacts.

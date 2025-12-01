@@ -1037,22 +1037,17 @@ Run: `python3 -m src.db_seeder` (This will clean old data).
 #### Employee Terminal Demo
 
 Run: `python3 -m src.employee_main`
-Operator: Login with `300000001`.
-Add a new Service (e.g., ID 101, Name Massage).
-Quit.
+Operator: Login with `300000001` to preview the operator terminal.
 
 #### Provider Terminal Demo
 
 Run: `python3 -m src.provider_main`
-Login with `100000001`.
-Directory: Request directory. Verify Massage (ID 101) appears in the list.
-Record Service: Record a service using the new code 101.
+Login with `100000001` to preview the provider terminal.
 
 #### Manager Demo
 
 Run: `python3 -m src.employee_main`
-Manager: Login with `300000002`.
-Run Report. Verify the new service transaction appears.
+Manager: Login with `300000002` to preview the manager terminal.
 
 ## Reflections
 

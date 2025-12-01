@@ -1010,7 +1010,7 @@ END Algorithm
 
 ## Implementation
 
-Implementation was performed using agentic AI assistance. The agent was instructed to write the tests first, then implement the code to verify it’s assumptions. [@GoogleAntigravity]
+Implementation was performed using agentic AI assistance. The agent was instructed to write the tests first, then implement the code to verify it’s assumptions [@GoogleAntigravity]. Full documentation and source code can be found on our [git repository](https://github.com/actellim/ChocAn).
 
 ### Demonstration Instructions
 
@@ -1040,14 +1040,6 @@ Run Report. Verify the new service transaction appears.
 
 ## Reflections
 
-### Josh, Testing
-
-During class I gave the presentation on testing. My presentation focused mostly on the logical side of execution based testing: proofing, deductive logic, etc., but also covered non-execution based testing of the analysis and design artifacts using reviews. The latter proved invaluable while working on the project. Often I would finish a section, only to review the artifacts and realize I was missing a crucial feature or had some features drifting from their intended use cases. While no formal testing of these artifacts was possible, informal testing was performed at every step of the workflow. 
-
-Implementation was completed with agentic AI assistance in ~1.5hrs using the test-driven method I outlined in my presentation. The agent was instructed to write the tests first, then implement the code to verify it’s assumptions. Overall, I would advocate for this method if the use of agents are required. Critically speaking, the agent failed to implement a full test suite, and was able to complete a revision pass and introduce a regression fault without catching the error. I think the implementation portion went as smoothly as it did due to the design being nearly complete by the time we arrived at that state. I would certainly advocate for more classical software engineering methods when using agents, as I’ve seen some issues with naively using agile assuming it will translate directly to an agentic workflow. Having a well fleshed out design seems crucial to a smooth implementation. 
-
-For context, I’ve attempted to work on my own personal project using agents and naive prompting and have had significantly more issues on a significantly smaller project. Taking the time to work through the requirements, analysis, and design steps certainly results in a much more efficient implementation. I suspect if we had taken more time in design, our implementation would have gone smoother then it did. In particular, I think I could have designed test artifacts through the entire process that would have caught the regression fault, as well as some other issues that we stumbled on during implementation. 
-
 ### Kenneth, Software Life-Cycle Models
 
 Preparing this presentation made it easier to understand how different software development models guide the building of a system. Many people assume all projects follow the same process, but looking at Agile, XP, Scrum, Synchronize and Stabilize, and the Spiral Model showed that each method has its own purpose. Agile focuses on flexibility, Scrum helps teams stay organized, XP encourages simple design and good communication, and the Spiral Model aims to reduce risks early. 
@@ -1057,6 +1049,7 @@ During the ChocAn term project, the ideas from these models became more noticeab
 Even though the ChocAn project is small, comparing it to real development models showed how important it is to use small steps, clear communication and early checks. Making this presentation helped build a better understanding of these models and showed how their ideas naturally appear during system design. This made the project feel more organized and gave a clearer view of how real software development moves forward.
 
 ### Vu, Object-Oriented Analysis
+
 Some said that analysis workflow is not necessary for the development process and could just be combined into the design workflow. However, through this ChocAn project, analysis in general and object-oriented analysis (OOA) specifically has proven to be more than just an inital and 'disposable' stage. OOA shows developers that any software is not a point of singularity but instead a composite of multiple different 'entities', with each of them being responsible for different tasks. Furthermore, OOA correctly mirrors our human reasoning process, from identifing objects, their attributes to considering the relationships among different objects. OOA focuses on *what* the system should do and *who* in the system should do it, instead of directly *how* to do it. 
 
 Defining objects, use cases and their interactions early on definitely helps everyone in the development team to have the same conceptual architect and conceptual data model in their mind, which significantly reduces the chance of miscommunication within the team in the design workflow. Furthermore, the transistion to the design workflow becomes much smoother thanks to modular, resuable designs. Components (like modules, functions) are easier to maintain, extend or repurpose for future projects, making the move to higher capability maturity model (CMM) become less dependent on money (usually to restructure the developing process)
@@ -1064,6 +1057,14 @@ Defining objects, use cases and their interactions early on definitely helps eve
 However, nothing is without flaw and this applies to OOA also. The ability to actually identifying the right objects (through noun extractions) and not overabstracting or underabstracting those objects, while resisting the temptation to jump in the design thought and process too early on is not an easy task to perform, especially for developers with less real-life experience. 
 
 Through this project, students have been able to learn some of the most useful and important skills (that are usually neglected) such as how to ask a question correctly to get the concise and detailed answers. More importantly, students also develop a deeper appreciation for the analysis workflow in general and OOA specifically, that effective software lies within disciplined thinking and understanding, not fast and fancy coding. 
+
+### Josh, Testing
+
+During class I gave the presentation on testing. My presentation focused mostly on the logical side of execution based testing: proofing, deductive logic, etc., but also covered non-execution based testing of the analysis and design artifacts using reviews. The latter proved invaluable while working on the project. Often I would finish a section, only to review the artifacts and realize I was missing a crucial feature or had some features drifting from their intended use cases. While no formal testing of these artifacts was possible, informal testing was performed at every step of the workflow. 
+
+Implementation was completed with agentic AI assistance in ~1.5hrs using the test-driven method I outlined in my presentation. The agent was instructed to write the tests first, then implement the code to verify it’s assumptions. Overall, I would advocate for this method if the use of agents are required. Critically speaking, the agent failed to implement a full test suite, and was able to complete a revision pass and introduce a regression fault without catching the error. I think the implementation portion went as smoothly as it did due to the design being nearly complete by the time we arrived at that state. I would certainly advocate for more classical software engineering methods when using agents, as I’ve seen some issues with naively using agile assuming it will translate directly to an agentic workflow. Having a well fleshed out design seems crucial to a smooth implementation. 
+
+For context, I’ve attempted to work on my own personal project using agents and naive prompting and have had significantly more issues on a significantly smaller project. Taking the time to work through the requirements, analysis, and design steps certainly results in a much more efficient implementation. I suspect if we had taken more time in design, our implementation would have gone smoother then it did. In particular, I think I could have designed test artifacts through the entire process that would have caught the regression fault, as well as some other issues that we stumbled on during implementation. 
 
 ## Lessons Learned
 
